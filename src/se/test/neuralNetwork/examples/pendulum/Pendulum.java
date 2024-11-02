@@ -5,15 +5,19 @@ import se.test.neuralNetwork.src.Individual;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class Pendulum extends JPanel {
     private static final double GRAVITY = 9.82 / 50;
-    private static final int WIDTH = 800;
+    private static final int WIDTH = 1600;
     private static final int HEIGHT = 600;
 
-    private double length = 200;
-    private double angle = Math.PI*1.5;
+    private double length = 100;
+    private double angle = Math.PI * 1.5;
     private double angularVelocity = 0;
     private double angularAcceleration = 0;
 
@@ -39,16 +43,18 @@ public class Pendulum extends JPanel {
     private int loopsToRun = 15 * 60;
 
     private double cartAcc = 0;
+
     public Pendulum(Individual sample, Runnable taskOnFinish) {
         network = sample;
 
         networkAdapter = new NetworkAdapter();
-        propagater = new Propagater(sample,networkAdapter);
+        propagater = new Propagater(sample, networkAdapter);
 
         this.taskOnFinish = taskOnFinish;
         runloops();
     }
-    public Pendulum(){
+
+    public Pendulum() {
         rendering = true;
 
         addKeyListener(new KeyAdapter() {
@@ -71,7 +77,6 @@ public class Pendulum extends JPanel {
         });
 
 
-
         setFocusable(true);
         requestFocusInWindow();
 
@@ -80,26 +85,33 @@ public class Pendulum extends JPanel {
 
         gameLoop.start();
     }
-    public Pendulum(Individual sample, boolean rendering){
+
+    public Pendulum(Individual sample, boolean rendering) {
         this.rendering = rendering;
 
         network = sample;
 
         networkAdapter = new NetworkAdapter();
-        propagater = new Propagater(sample,networkAdapter);
+        propagater = new Propagater(sample, networkAdapter);
 
         setFocusable(true);
 
         gameLoop.addUpdateListener(this::update);
 
-        if(rendering){
+        if (rendering) {
             gameLoop.addRenderListener(this::draw);
+            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
+            scheduler.schedule(gameLoop::start, 1, TimeUnit.SECONDS);
+
+            scheduler.shutdown();
+        } else {
+            gameLoop.start();
         }
 
-        gameLoop.start();
     }
 
-    private void runloops(){
+    private void runloops() {
         double score = 0;
         for (int i = 0; i < loopsToRun; i++) {
             update();
@@ -107,10 +119,10 @@ public class Pendulum extends JPanel {
             double height = Math.max(0, getBallPosY());
             double cartCentering = Math.max(0, 1 - Math.abs(getCartX()));
 
-            double stability = Math.max(1, Math.abs(angularVelocity * 15));
+            double stability = Math.abs(angularVelocity);
 
-            if(getBallPosY() > 0.8){
-                score += height * cartCentering / stability;
+            if (getBallPosY() > 0.8) {
+                score += height * cartCentering;// - stability;
             }
 
         }
@@ -118,7 +130,8 @@ public class Pendulum extends JPanel {
         taskOnFinish.run();
     }
 
-    private void propagate(){
+    private void propagate() {
+        //System.out.println(getCartX() + " " + getBallPosX() + " " + getBallPosY() + " " + getAngularVelocity());
         networkAdapter.setPos(getCartX());
         networkAdapter.setBallX(getBallPosX());
         networkAdapter.setBallY(getBallPosY());
@@ -154,37 +167,36 @@ public class Pendulum extends JPanel {
 
 
     public void draw() {
-        if(rendering){
+        if (rendering) {
             requestFocusInWindow();
         }
         repaint();
     }
 
-    public void setCartVelocity(double newVel){
-        oldVelocity = cartVelocity;
-        cartVelocity = newVel* 1000;
-
-        cartAcc = cartVelocity - oldVelocity;
+    public void setCartAcc(double newAcc) {
+        cartAcc = newAcc * 10;
     }
 
-    public double getCartX(){
+    public double getCartX() {
         return (cartX * 2) / WIDTH - 1;
     }
-    public double getAngularVelocity(){
+
+    public double getAngularVelocity() {
         return Activation.Sigmoid.activate(angularVelocity);
     }
 
-    public double getBallPosX(){
+    public double getBallPosX() {
         return Math.cos(angle);
     }
-    public double getBallPosY(){
+
+    public double getBallPosY() {
         return Math.sin(angle);
     }
 
     public void update() {
-        if(propagater != null){
+        if (propagater != null) {
             propagate();
-            setCartVelocity(propagater.getCartVel());
+            setCartAcc(propagater.getCartAcc());
         }
 
         cartVelocity += cartAcc;
@@ -192,11 +204,11 @@ public class Pendulum extends JPanel {
 
         if (cartX <= 0) {
             cartX = 0;
-            cartAcc -= cartVelocity;
+            cartAcc -= 0;
             cartVelocity = 0;
         } else if (cartX >= WIDTH) {
             cartX = WIDTH;
-            cartAcc -= cartVelocity;
+            cartAcc = 0;
             cartVelocity = 0;
         }
 
@@ -207,12 +219,14 @@ public class Pendulum extends JPanel {
         angularVelocity *= damping;
         angle += angularVelocity;
 
-        if (cartX <= 0 ||cartX >= WIDTH ) {
+        cartVelocity *= damping;
+
+        if (cartX <= 0 || cartX >= WIDTH) {
             cartAcc = 0;
         }
     }
 
-    public static int getWIDTH(){
+    public static int getWIDTH() {
         return WIDTH;
     }
 

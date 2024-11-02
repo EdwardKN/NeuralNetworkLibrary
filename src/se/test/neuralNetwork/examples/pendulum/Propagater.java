@@ -15,16 +15,17 @@ public class Propagater {
     private double[] propagation = new double[outputAmount];
 
 
-    public Propagater(Individual individual, NetworkAdapter networkAdapter){
+    public Propagater(Individual individual, NetworkAdapter networkAdapter) {
         this.individual = individual;
         this.genome = individual.getNetwork();
         this.networkAdapter = networkAdapter;
     }
+
     public void propagate() {
         propagation = genome.propagate(networkAdapter.getPack());
     }
 
-    public double getCartVel(){
+    public double getCartAcc() {
         return propagation[0];
     }
 }

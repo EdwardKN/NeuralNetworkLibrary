@@ -1,6 +1,8 @@
 package se.test.neuralNetwork.src;
 
-public class LinkGene {
+import java.io.Serializable;
+
+public class LinkGene implements Serializable {
     private final int inputId;
     private final int outputId;
     private double weight;
@@ -34,6 +36,12 @@ public class LinkGene {
         this.weight = weight;
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        LinkGene cloned = (LinkGene) super.clone();
+        // Deep copy any mutable fields if necessary
+        return cloned;
+    }
     public void initializeWeight(int inputSize, int outputSize) {
         double k = (inputSize + outputSize == 0) ? 0.1 : Math.sqrt(6.0 / (inputSize + outputSize));
         this.weight = k * (RandomUtil.random.nextDouble() * 2 - 1);

@@ -2,6 +2,7 @@ package se.test.neuralNetwork.src;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.apache.commons.lang.SerializationUtils;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -26,6 +27,9 @@ public class Population {
 
     private float highestDeltaBelowThreshold;
 
+    private double highestFitness = 0;
+    private double averageFitness = 0;
+
     private static ConfigLoader config;
 
     private FitnessComputer fitnessComputer;
@@ -37,13 +41,14 @@ public class Population {
         config = new ConfigLoader("network.properties");
 
         for (int i = 0; i < size; i++) {
-            Individual individual = new Individual(Genome.createCompletelyConnectedGenome(amountOfInputs,amountOfOutputs), i);
+            Individual individual = new Individual(Genome.createCompletelyConnectedGenome(amountOfInputs, amountOfOutputs), i);
             individual.mutate(config.getInt("amountOfMutationRolls"), false);
             individuals.add(individual);
         }
 
 
     }
+
     public Population(int size, int amountOfInputs, int amountOfOutputs, String fileName) {
         this.fileName = fileName;
         populationSize = size;
@@ -74,7 +79,11 @@ public class Population {
     }
 
     public void hasCalculatedFitness() {
-        System.out.println(getBestSamplesSorted(1)[0].getFitness());
+        highestFitness = getBestSamplesSorted(1)[0].getFitness();
+        averageFitness = individuals.stream()
+                .mapToDouble(Individual::getFitness)
+                .average()
+                .orElse(0.0);
         generations++;
         if (generations >= untilGeneration) {
             exportToJson(fileName);
@@ -305,41 +314,55 @@ public class Population {
         //Keep best x% of each species
         List<Individual> newGeneration = new ArrayList<>();
 
-        int currentIndividualId = -1;
+        int currentIndividualId = 0;
 
         for (int index = 0; index < amountOfOffspring.length; index++) {
             List<Individual> currentSpecies = species.get(index);
             currentSpecies.sort(Comparator.comparing(Individual::getFitness).reversed());
 
-            int crossoverCutoff = Math.max((int) (currentSpecies.size() * calculateCrossoverThreshold(currentSpecies)), amountOfOffspring[index] - currentSpecies.size());
+            int crossoverCutoff = (int) (currentSpecies.size() * (1 - calculateCrossoverThreshold(currentSpecies)));
 
-            //System.out.println("crossover " + calculateCrossoverThreshold(currentSpecies));
+            int mutationCutoff = (int) (crossoverCutoff * config.getDouble("keepingPart"));
 
-            for (int i = 0; i < amountOfOffspring[index]; i++) {
-                currentIndividualId++;
+            //System.out.println("crossover " + crossoverCutoff);
+
+            //System.out.println(currentSpecies.getFirst().getFitness());
+            for (int i = 0; i < crossoverCutoff; i++) {
                 Individual offspring;
-
-                if (i < crossoverCutoff) {
-                    int index2;
-                    do {
-                        index2 = RandomUtil.random.nextInt(crossoverCutoff);
-                    } while (i == index2);
-
-                    Individual parent1 = currentSpecies.get(i);
-                    Individual parent2 = currentSpecies.get(index2);
-
-                    offspring = new Individual(crossover(parent1, parent2), currentIndividualId);
-                    offspring.mutate(config.getInt("amountOfMutationRolls"), false);
-
+                if (i < mutationCutoff) {
+                    Genome copiedGenome = (Genome) SerializationUtils.clone(currentSpecies.get(i).getNetwork());
+                    offspring = new Individual(copiedGenome, currentIndividualId++);
                 } else {
-                    Individual baseIndividual = currentSpecies.get(i-crossoverCutoff);
-                    offspring = new Individual(baseIndividual.getNetwork(), currentIndividualId);
-
-                    //offspring.mutate(config.getInt("amountOfMutationRolls"), false);
+                    Genome copiedGenome = (Genome) SerializationUtils.clone(currentSpecies.get(i - mutationCutoff).getNetwork());
+                    offspring = new Individual(copiedGenome, currentIndividualId++);
+                    offspring.mutate(config.getInt("amountOfMutationRolls"), false);
                 }
+                newGeneration.add(offspring);
+            }
+
+            if (amountOfOffspring[index] - crossoverCutoff == 1) {
+                Genome copiedGenome = (Genome) SerializationUtils.clone(currentSpecies.getFirst().getNetwork());
+                newGeneration.add(new Individual(copiedGenome, currentIndividualId++));
+                continue;
+            }
+
+            for (int i = crossoverCutoff; i < amountOfOffspring[index]; i++) {
+                Individual offspring;
+                int index2;
+                do {
+                    index2 = RandomUtil.random.nextInt(amountOfOffspring[index] - crossoverCutoff);
+                } while (i == index2);
+
+                Individual parent1 = currentSpecies.get(i - crossoverCutoff);
+                Individual parent2 = currentSpecies.get(index2);
+
+                offspring = new Individual(crossover(parent1, parent2), currentIndividualId++);
+                offspring.mutate(config.getInt("amountOfMutationRolls"), false);
+
 
                 newGeneration.add(offspring);
             }
+
 
         }
 
@@ -465,6 +488,7 @@ public class Population {
 
         return samples;
     }
+
     public Individual[] getBestSamplesSorted(int amount) {
         List<Individual> sortedList = new ArrayList<>(individuals);
         sortedList.sort(Comparator.comparing(Individual::getFitness).reversed());
@@ -526,5 +550,11 @@ public class Population {
         this.fitnessComputer = fitnessComputer;
     }
 
+    public double getHighestFitness() {
+        return highestFitness;
+    }
 
+    public double getAverageFitness() {
+        return averageFitness;
+    }
 }

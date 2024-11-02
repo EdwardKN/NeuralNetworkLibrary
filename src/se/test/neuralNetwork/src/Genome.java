@@ -1,9 +1,10 @@
 package se.test.neuralNetwork.src;
 
 
+import java.io.*;
 import java.util.*;
 
-public class Genome {
+public class Genome implements Serializable {
     // Must have
     private final int amountOfInputs;
     private final int amountOfOutputs;
@@ -403,4 +404,5 @@ public class Genome {
     public int getComplexity() {
         return neurons.size() + (int) links.stream().filter(LinkGene::isEnabled).count();
     }
+
 }

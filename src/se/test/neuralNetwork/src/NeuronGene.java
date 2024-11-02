@@ -1,6 +1,8 @@
 package se.test.neuralNetwork.src;
 
-public class NeuronGene {
+import java.io.Serializable;
+
+public class NeuronGene implements Serializable {
     private final int id;
     private double bias;
     private Activation activation;
@@ -16,7 +18,6 @@ public class NeuronGene {
         this.bias = bias;
         this.activation = activation;
     }
-
     public void initializeBias() {
         bias = Population.getConfig().getDouble("neuronBiasStartRange") * (RandomUtil.random.nextDouble() * 2 - 1);
     }
