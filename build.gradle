@@ -8,17 +8,25 @@ group = project.property('group')
 version = project.property('version')
 
 publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            groupId = project.property('group')
+            artifactId = 'NeuralNetworkLibrary'
+            version = project.findProperty("version")
+        }
+    }
     repositories {
         maven {
-            name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/EdwardKN/NeuralNetworkLibrary")
             credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
             }
         }
     }
 }
+
 
 allprojects {
     apply plugin: 'java'
