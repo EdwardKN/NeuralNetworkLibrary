@@ -1,28 +1,26 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
-apply plugin: 'maven-publish'
 
 
 group = 'se.klinghammer'
 version = '0.9.1'
 
 publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-            groupId = group
-            artifactId = 'NeuralNetworkLibrary'
-            version = version
-        }
-    }
     repositories {
         maven {
+            name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/EdwardKN/NeuralNetworkLibrary")
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
             }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
         }
     }
 }

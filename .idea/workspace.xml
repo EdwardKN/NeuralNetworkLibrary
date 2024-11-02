@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="dumheter">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="skitsystem">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730582804492</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="skitsystem">
+      <option name="closed" value="true" />
+      <created>1730583187775</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1730583187775</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -312,6 +319,7 @@
     <MESSAGE value="banan igen" />
     <MESSAGE value="miss" />
     <MESSAGE value="dumheter" />
-    <option name="LAST_COMMIT_MESSAGE" value="dumheter" />
+    <MESSAGE value="skitsystem" />
+    <option name="LAST_COMMIT_MESSAGE" value="skitsystem" />
   </component>
 </project>
