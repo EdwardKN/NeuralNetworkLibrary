@@ -1,3 +1,9 @@
 rootProject.name = 'NeuralNetworkLibrary'
 include ':src'
 include ':examples:pendulum'
+
+sourceControl {
+    gitRepository("https://github.com/EdwardKN/NeuralNetworkLibrary") {
+        producesModule("se.klinghammer:NeuralNetworkLibrary")
+    }
+}

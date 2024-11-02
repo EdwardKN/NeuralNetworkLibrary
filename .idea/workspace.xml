@@ -4,51 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/apache_directory_studio_commons_lang.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/google_code_gson.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeuralNetworkLibrary.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/error_prone_annotations-2.27.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/gson-2.11.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/network.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/FitnessComputerPendulum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/GameLoop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/NetworkAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/Pendulum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/Propagater.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/ScreenRefreshRateDetector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/TrainingWindow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/Activation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/ConfigLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/CustomThreadPool.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/FitnessComputer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/Genome.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/Individual.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/LinkGene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/NeuronGene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/Population.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/RandomUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/Content.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/NetworkDraw.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/PositionedNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/Window.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/CollisionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/DrawUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/FontLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/GameLoop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/ImageData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/JSONUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/ScalableIcon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/ScreenRefreshRateDetector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/TextureData.java" beforeDir="false" />
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="missade saker oof">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +99,7 @@
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Dev/Java/IdeaProjects/NeuralNetworkLibrary/examples/pendulum",
+    "last_opened_file_path": "C:/Dev/Java/IdeaProjects/Monopoly-java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -179,6 +137,28 @@
       <option name="presentableId" value="Default" />
       <updated>1730574596404</updated>
     </task>
+    <task id="LOCAL-00001" summary="gradle">
+      <option name="closed" value="true" />
+      <created>1730578518645</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730578518645</updated>
+    </task>
+    <task id="LOCAL-00002" summary="missade saker oof">
+      <option name="closed" value="true" />
+      <created>1730578531961</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730578531961</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="gradle" />
+    <MESSAGE value="missade saker oof" />
+    <option name="LAST_COMMIT_MESSAGE" value="missade saker oof" />
   </component>
 </project>
