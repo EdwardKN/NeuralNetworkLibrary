@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="banan nu då">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="skithelveten borde funka">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/publish-release.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish-release.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,7 +337,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730584366727</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="skithelveten borde funka">
+      <option name="closed" value="true" />
+      <created>1730585135844</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1730585135844</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -365,6 +373,7 @@
     <MESSAGE value="skit" />
     <MESSAGE value="jag hatar github" />
     <MESSAGE value="banan nu då" />
-    <option name="LAST_COMMIT_MESSAGE" value="banan nu då" />
+    <MESSAGE value="skithelveten borde funka" />
+    <option name="LAST_COMMIT_MESSAGE" value="skithelveten borde funka" />
   </component>
 </project>
