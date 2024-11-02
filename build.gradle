@@ -1,7 +1,7 @@
 plugins {
     id 'java'
-    id 'maven-publish'
 }
+apply plugin: 'maven-publish'
 
 
 group = 'se.klinghammer'
@@ -9,7 +9,7 @@ version = '0.9.1a'
 
 publishing {
     publications {
-        gpr(MavenPublication) {
+        mavenJava(MavenPublication) {
             from components.java
             groupId = group
             artifactId = 'neural-network-library'
