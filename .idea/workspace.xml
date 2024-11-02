@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/apache_directory_studio_commons_lang.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/google_code_gson.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuralNetworkLibrary.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/error_prone_annotations-2.27.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/gson-2.11.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/network.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/FitnessComputerPendulum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/GameLoop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/NetworkAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/Pendulum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/Propagater.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/ScreenRefreshRateDetector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/examples/pendulum/TrainingWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/Activation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/ConfigLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/CustomThreadPool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/FitnessComputer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/Genome.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/Individual.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/LinkGene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/NeuronGene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/Population.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/RandomUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/Content.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/NetworkDraw.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/PositionedNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/Window.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/CollisionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/DrawUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/FontLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/GameLoop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/ImageData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/JSONUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/ScalableIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/ScreenRefreshRateDetector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/test/neuralNetwork/src/visual/utils/TextureData.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
+                <item name="examples" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
+                <item name="examples" type="2d1252cf:ModuleNode" />
+                <item name="pendulum" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
+                <item name="examples" type="2d1252cf:ModuleNode" />
+                <item name="pendulum" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
+                <item name="src" type="2d1252cf:ModuleNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2oJ4yF7H0R2rQFGwpHWDVARhApI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Gradle.Build NeuralNetworkLibrary.executor": "Run",
+    "Gradle.Load Gradle Dependencies.executor": "Run",
+    "Gradle.NeuralNetworkLibrary [dependencies].executor": "Run",
+    "Gradle.NeuralNetworkLibrary.executor": "Run",
+    "Gradle.NeuralNetworkLibrary:examples:pendulum [:examples:pendulum:Main.main()].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Dev/Java/IdeaProjects/NeuralNetworkLibrary/examples/pendulum",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "actions.on.save"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\examples\pendulum" />
+      <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\src\examples" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\src\examples\pendulum\java" />
+      <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\src\examples\pendulum" />
+      <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\src\main\java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="NeuralNetworkLibrary.examples.pendulum.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="" />
+      <created>1730574596404</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730574596404</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+}
+
+group = 'se.klinghammer'
+version = '1.0-SNAPSHOT'
+
+allprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+project(':src') {
+    dependencies {
+        implementation 'com.google.code.gson:gson:2.11.0'
+        implementation 'org.apache.commons:commons-lang3:3.17.0'
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['java']
+            }
+        }
+    }
+}
+
+project(':examples:pendulum') {
+    dependencies {
+        implementation project(':src')
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['java']
+            }
+            resources {
+                srcDirs = ['resources']
+            }
+        }
+    }
+}
