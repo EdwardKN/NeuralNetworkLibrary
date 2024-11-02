@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="bajs">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="skit i release">
       <change beforePath="$PROJECT_DIR$/.github/workflows/publish-release.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish-release.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730582175383</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="skit i release">
+      <option name="closed" value="true" />
+      <created>1730582293031</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1730582293031</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -274,6 +284,7 @@
     <MESSAGE value="kanske" />
     <MESSAGE value="banan" />
     <MESSAGE value="bajs" />
-    <option name="LAST_COMMIT_MESSAGE" value="bajs" />
+    <MESSAGE value="skit i release" />
+    <option name="LAST_COMMIT_MESSAGE" value="skit i release" />
   </component>
 </project>
