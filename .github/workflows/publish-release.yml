@@ -43,15 +43,3 @@ jobs:
           echo "New version: ${NEW_VERSION}"
           echo "Github username: ${GITHUB_ACTOR}"
           ./gradlew -Pversion=${NEW_VERSION} publish --info --stacktrace
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ steps.publish.outputs.NEW_VERSION }}
-          body: |
-            Changes in this release:
-            - New version: ${{ steps.publish.outputs.NEW_VERSION }}
-            - GitHub username: ${{ github.actor }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
