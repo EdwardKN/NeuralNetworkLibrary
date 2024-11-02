@@ -4,16 +4,16 @@ plugins {
 apply plugin: 'maven-publish'
 
 
-group = project.property('group')
-version = project.property('version')
+group = 'se.klinghammer'
+version = '0.9.1'
 
 publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
-            groupId = project.property('group')
+            groupId = group
             artifactId = 'NeuralNetworkLibrary'
-            version = project.findProperty("version")
+            version = version
         }
     }
     repositories {
