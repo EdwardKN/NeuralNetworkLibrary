@@ -1,9 +1,10 @@
 name: Publish release
 
 on:
-  release:
-    types: [ published ]
-
+  push:
+    branches:
+      - master
+      -
 jobs:
   publish-release:
     runs-on: ubuntu-latest
