@@ -6,13 +6,6 @@ group = project.property('group')
 version = project.property('version')
 
 publishing {
-    publications {
-        create<MavenPublication>("default") {
-            from(components["java"])
-
-        }
-    }
-
     repositories {
         maven {
             name = "GitHubPackages"
