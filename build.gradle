@@ -12,7 +12,7 @@ publishing {
         gpr(MavenPublication) {
             from components.java
             groupId = group
-            artifactId = 'NeuralNetworkLibrary'
+            artifactId = 'neural-network-library'
             version = project.version
         }
     }
