@@ -20,14 +20,12 @@ publishing {
         maven {
             url = uri("https://maven.pkg.github.com/EdwardKN/NeuralNetworkLibrary")
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
             }
         }
     }
 }
-
-
 allprojects {
     apply plugin: 'java'
 
