@@ -34,11 +34,24 @@ jobs:
         run: ls -la
 
       - name: Publish artifact
+        id: publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true  # Force Node20
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
         run: |
           NEW_VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
           echo "New version: ${NEW_VERSION}"
           echo "Github username: ${GITHUB_ACTOR}"
           ./gradlew -Pversion=${NEW_VERSION} publish --info --stacktrace
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ steps.publish.outputs.NEW_VERSION }}
+          body: |
+            Changes in this release:
+            - New version: ${{ steps.publish.outputs.NEW_VERSION }}
+            - GitHub username: ${{ github.actor }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
