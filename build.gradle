@@ -2,8 +2,28 @@ plugins {
     id 'java'
 }
 
-group = 'se.klinghammer'
-version = '1.0-SNAPSHOT'
+group = project.property('group')
+version = project.property('version')
+
+publishing {
+    publications {
+        create<MavenPublication>("default") {
+            from(components["java"])
+
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/EdwardKN/NeuralNetworkLibrary")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
 
 allprojects {
     apply plugin: 'java'
