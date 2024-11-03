@@ -9,7 +9,7 @@ version = '0.9.1.0'
 
 publishing {
     publications {
-        gpr(MavenPublication) {
+        mavenJava(MavenPublication) {
             from components.java
             groupId = group
             artifactId = 'neural-network-library'

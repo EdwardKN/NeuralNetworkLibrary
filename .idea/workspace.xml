@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="jävla skit">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="kanske">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/publish-release.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish-release.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -423,13 +425,20 @@
       <option name="project" value="LOCAL" />
       <updated>1730636961146</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="kanske">
+      <option name="closed" value="true" />
+      <created>1730637125948</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1730637125948</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="nu hoppas jag" />
     <MESSAGE value="v4 hoppas jag funkar" />
-    <MESSAGE value="kanske" />
     <MESSAGE value="banan" />
     <MESSAGE value="bajs" />
     <MESSAGE value="skit i release" />
@@ -452,6 +461,7 @@
     <MESSAGE value="vafan" />
     <MESSAGE value="nu då" />
     <MESSAGE value="jävla skit" />
-    <option name="LAST_COMMIT_MESSAGE" value="jävla skit" />
+    <MESSAGE value="kanske" />
+    <option name="LAST_COMMIT_MESSAGE" value="kanske" />
   </component>
 </project>
