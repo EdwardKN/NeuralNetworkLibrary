@@ -7,9 +7,6 @@ apply plugin: 'maven-publish'
 group = 'se.klinghammer'
 version = '0.9.1.0'
 
-plugins {
-    id("maven-publish")
-}
 publishing {
     repositories {
         maven {
