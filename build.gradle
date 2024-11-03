@@ -7,15 +7,10 @@ apply plugin: 'maven-publish'
 group = 'se.klinghammer'
 version = '0.9.1.0'
 
+plugins {
+    id("maven-publish")
+}
 publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-            groupId = group
-            artifactId = 'neural-network-library'
-            version = project.version
-        }
-    }
     repositories {
         maven {
             name = "GitHubPackages"
@@ -26,7 +21,16 @@ publishing {
             }
         }
     }
+    publications {
+        gpr(MavenPublication) {
+            from components.java
+            groupId = group
+            artifactId = 'neural-network-library'
+            version = project.version
+        }
+    }
 }
+
 repositories {
     mavenCentral()
 }
