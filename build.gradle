@@ -1,8 +1,7 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
-apply plugin: 'maven-publish'
-
 
 group = 'se.klinghammer'
 version = '0.9.1.4'
@@ -27,26 +26,10 @@ publishing {
             }
         }
     }
-
 }
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation 'com.google.code.gson:gson:2.11.0'
-    implementation 'org.apache.commons:commons-lang3:3.17.0'
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/java']
-        }
-        resources {
-            srcDirs = ['src/resources']
-        }
+allprojects {
+    repositories {
+        mavenCentral()
     }
 }
-

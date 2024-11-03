@@ -35,4 +35,13 @@ public enum Activation {
     public double activate(double input) {
         throw new UnsupportedOperationException("This activation function does not support single input activation");
     }
+
+    public static Activation getFromString(String activation) {
+        for (Activation act : Activation.values()) {
+            if (act.name().equalsIgnoreCase(activation)) {
+                return act;
+            }
+        }
+        throw new IllegalArgumentException("No activation function found for: " + activation);
+    }
 }

@@ -2,28 +2,24 @@ plugins {
     id 'java'
 }
 
+group = 'se.klinghammer'
+version = '1.0-SNAPSHOT'
+
 repositories {
     mavenCentral()
-    maven {
-        url = uri("https://maven.pkg.github.com/yourusername/yourproject")
-        credentials {
-            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-            password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
-        }
-    }
 }
 
 dependencies {
-    implementation 'se.klinghammer:neural-network-library:0.9.1' // Adjust the group and artifact ID
+    implementation project(':src') // Correctly reference the src module
 }
 
 sourceSets {
     main {
         java {
-            srcDirs = ['java']
+            srcDirs = ['java'] // Ensure this points to the correct source folder for pendulum
         }
         resources {
-            srcDirs = ['resources']
+            srcDirs = ['resources'] // Ensure this points to the correct resource folder for pendulum
         }
     }
 }

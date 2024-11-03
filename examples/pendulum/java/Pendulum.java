@@ -1,3 +1,6 @@
+import se.klinghammer.neuralNetworkLibrary.Activation;
+import se.klinghammer.neuralNetworkLibrary.Individual;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;

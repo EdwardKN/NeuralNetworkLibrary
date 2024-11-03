@@ -32,4 +32,13 @@ public class ConfigLoader {
             return 0;
         }
     }
+
+    public String getSring(String key) {
+        try {
+            return properties.getProperty(key);
+        } catch (NumberFormatException e) {
+            System.out.println(key);
+            return "";
+        }
+    }
 }

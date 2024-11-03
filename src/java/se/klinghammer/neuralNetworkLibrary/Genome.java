@@ -51,11 +51,15 @@ public class Genome implements Serializable {
 
             // Apply activation function
             if (!activatedNeurons.get(inputId)) {
-                activatedNeurons.set(inputId);
-                NeuronGene inputNeuron = idToNeuron.get(inputId);
-                currentValue.put(inputId, inputNeuron.activate(currentValue.get(inputId)));
+                if (Population.getConfig().getSring("forceHiddenActivationType").isEmpty()) {
+                    activatedNeurons.set(inputId);
+                    NeuronGene inputNeuron = idToNeuron.get(inputId);
+                    currentValue.put(inputId, inputNeuron.activate(currentValue.get(inputId)));
+                } else {
+                    currentValue.put(inputId, Activation.getFromString(Population.getConfig().getSring("forceHiddenActivationType")).activate(currentValue.get(inputId)));
+                }
 
-                currentValue.put(inputId, Activation.ReLU.activate(currentValue.get(inputId)));
+
             }
 
             // Calculate input
@@ -67,8 +71,11 @@ public class Genome implements Serializable {
         double[] outputs = new double[amountOfOutputs];
 
         for (int i = 0; i < amountOfOutputs; i++) {
-            outputs[i] = se.klinghammer.neuralNetworkLibrary.Activation.Sigmoid.activate(currentValue.get(amountOfInputs + i));
-            //outputs[i] = Activation.Tanh.activate(currentValue.get(amountOfInputs + i));
+            if (Population.getConfig().getSring("forceOutputActivationType").isEmpty()) {
+                outputs[i] = se.klinghammer.neuralNetworkLibrary.Activation.Sigmoid.activate(currentValue.get(amountOfInputs + i));
+            } else {
+                outputs[i] = Activation.getFromString(Population.getConfig().getSring("forceOutputActivationType")).activate(currentValue.get(amountOfInputs + i));
+            }
         }
 
         return outputs;

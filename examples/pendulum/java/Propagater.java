@@ -1,3 +1,6 @@
+import se.klinghammer.neuralNetworkLibrary.Genome;
+import se.klinghammer.neuralNetworkLibrary.Individual;
+
 public class Propagater {
     private final Individual individual;
 

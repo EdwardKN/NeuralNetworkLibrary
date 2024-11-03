@@ -1,3 +1,8 @@
+import se.klinghammer.neuralNetworkLibrary.CustomThreadPool;
+import se.klinghammer.neuralNetworkLibrary.FitnessComputer;
+import se.klinghammer.neuralNetworkLibrary.Individual;
+import se.klinghammer.neuralNetworkLibrary.Population;
+
 import java.util.List;
 
 public class FitnessComputerPendulum implements FitnessComputer {

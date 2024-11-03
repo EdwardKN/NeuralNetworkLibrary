@@ -1,3 +1,6 @@
+import se.klinghammer.neuralNetworkLibrary.Individual;
+import se.klinghammer.neuralNetworkLibrary.Population;
+
 import javax.swing.*;
 
 public class TrainingWindow extends JFrame {

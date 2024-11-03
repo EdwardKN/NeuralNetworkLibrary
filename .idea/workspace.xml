@@ -4,11 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="get fitnesscomputer">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="fixad genome">
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/pendulum/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/pendulum/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/pendulum/java/FitnessComputerPendulum.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/java/FitnessComputerPendulum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/pendulum/java/Pendulum.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/java/Pendulum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/pendulum/java/Propagater.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/java/Propagater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/pendulum/java/TrainingWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/java/TrainingWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/pendulum/resources/exported.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/resources/exported.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/pendulum/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Activation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Activation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/ConfigLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/ConfigLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +31,9 @@
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/examples/pendulum">
       <ProjectState />
     </projectState>
   </component>
@@ -36,7 +53,13 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="examples" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
+                <item name="examples" type="2d1252cf:ModuleNode" />
+                <item name="pendulum" type="2d1252cf:ModuleNode" />
               </path>
             </expand>
             <select />
@@ -74,17 +97,20 @@
     "Application.Main.executor": "Run",
     "Application.Unnamed.executor": "Run",
     "Gradle.Build NeuralNetworkLibrary.executor": "Run",
+    "Gradle.C:/Dev/Java/IdeaProjects/NeuralNetworkLibrary/examples/pendulum/build.gradle.executor": "Run",
     "Gradle.Load Gradle Dependencies.executor": "Run",
     "Gradle.NeuralNetworkLibrary [:Main.main()].executor": "Run",
     "Gradle.NeuralNetworkLibrary [dependencies].executor": "Run",
     "Gradle.NeuralNetworkLibrary.executor": "Run",
     "Gradle.NeuralNetworkLibrary:examples:pendulum [:examples:pendulum:Main.main()].executor": "Run",
+    "Gradle.pendulum [:Main.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Dev/Java/IdeaProjects/NeuralNetworkLibrary/examples",
+    "last_opened_file_path": "C:/Dev/Java/IdeaProjects/NeuralNetworkLibrary/src",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -102,32 +128,14 @@
       <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.se.klinghammer.neuralNetworkLibrary.Main">
-    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="NeuralNetworkLibrary.examples.pendulum.main" />
+      <module name="se.klinghammer.NeuralNetworkLibrary.examples.pendulum.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="se.klinghammer.neuralNetworkLibrary.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="se.klinghammer.neuralNetworkLibrary.Main" />
-      <module name="NeuralNetworkLibrary.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.se.klinghammer.neuralNetworkLibrary.Main" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.se.klinghammer.neuralNetworkLibrary.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -522,11 +530,18 @@
       <option name="project" value="LOCAL" />
       <updated>1730640185092</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="fixad genome">
+      <option name="closed" value="true" />
+      <created>1730640983098</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1730640983098</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="skitsystem" />
     <MESSAGE value="jävla skit helvete" />
     <MESSAGE value="skit" />
     <MESSAGE value="jag hatar github" />
@@ -551,6 +566,7 @@
     <MESSAGE value="refractor" />
     <MESSAGE value="fix" />
     <MESSAGE value="get fitnesscomputer" />
-    <option name="LAST_COMMIT_MESSAGE" value="get fitnesscomputer" />
+    <MESSAGE value="fixad genome" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixad genome" />
   </component>
 </project>

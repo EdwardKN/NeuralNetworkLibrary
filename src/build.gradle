@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group = 'se.klinghammer'
+version = '0.9.1.4' // Version should match the library version
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Define any dependencies needed by the src module
+    implementation 'com.google.code.gson:gson:2.11.0'
+    implementation 'org.apache.commons:commons-lang3:3.17.0'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['java'] // Adjust this according to your directory structure
+        }
+        resources {
+            srcDirs = ['resources'] // Adjust this according to your directory structure
+        }
+    }
+}
