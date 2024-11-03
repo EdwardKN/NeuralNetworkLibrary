@@ -10,16 +10,16 @@ repositories {
 }
 
 dependencies {
-    implementation project(':src') // Correctly reference the src module
+    implementation project(':src') // Ensure this correctly references the src module
 }
 
 sourceSets {
     main {
         java {
-            srcDirs = ['java'] // Adjust if necessary
+            srcDirs = ['java'] // Adjust this according to your directory structure
         }
         resources {
-            srcDirs = ['resources'] // Adjust if necessary
+            srcDirs = ['resources'] // Adjust this according to your directory structure
         }
     }
 }
