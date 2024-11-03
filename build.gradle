@@ -5,7 +5,7 @@ apply plugin: 'maven-publish'
 
 
 group = 'se.klinghammer'
-version = '0.9.1a'
+version = '0.9.1.0'
 
 publishing {
     repositories {
