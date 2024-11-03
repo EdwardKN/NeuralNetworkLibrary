@@ -8,18 +8,10 @@ group = 'se.klinghammer'
 version = '0.9.1'
 
 publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-            groupId = group
-            artifactId = 'neural-network-library'
-            version = project.version
-        }
-    }
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/EdwardKN/NeuralNetworkLibrary")
+            url = "https://maven.pkg.github.com/EdwardKN/NeuralNetworkLibrary"
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
