@@ -36,7 +36,7 @@ public class TrainingWindow extends JFrame {
             add(pendulum);
             setSize(Pendulum.getWIDTH(), HEIGHT);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            setSize(1280, 720);
+            setSize(420, 400);
             setVisible(true);
         } else {
             setSize(200, 200);
@@ -45,7 +45,7 @@ public class TrainingWindow extends JFrame {
 
             population.setFitnessComputer(new FitnessComputerPendulum(population));
 
-            population.run(15);
+            population.run(100);
         }
         labels = new JLabel[6];
 

@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Pendulum extends JPanel {
     private static final double GRAVITY = 9.82 / 50;
-    private static final int WIDTH = 1600;
+    private static final int WIDTH = 400;
     private static final int HEIGHT = 600;
 
     private double length = 100;
@@ -147,16 +147,16 @@ public class Pendulum extends JPanel {
 
         // Calculate the position of the pendulum bob relative to the cart
         double bobX = cartX + length * Math.cos(angle);
-        double bobY = HEIGHT - 150 - length * Math.sin(angle);
+        double bobY = HEIGHT - 350 - length * Math.sin(angle);
 
         // Draw the cart
         g2d.setColor(Color.BLUE);
-        g2d.fillRect((int) (cartX - 20), HEIGHT - 150, 40, 20);
+        g2d.fillRect((int) (cartX - 20), HEIGHT - 350, 40, 20);
 
         // Draw the pendulum arm
         g2d.setStroke(new BasicStroke(2));
         g2d.setColor(Color.BLACK);
-        g2d.drawLine((int) cartX, HEIGHT - 150, (int) bobX, (int) bobY);
+        g2d.drawLine((int) cartX, HEIGHT - 350, (int) bobX, (int) bobY);
 
         // Draw the pendulum bob
         g2d.setColor(Color.RED);

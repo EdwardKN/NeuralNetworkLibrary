@@ -335,19 +335,27 @@ public class Population {
             for (int i = 0; i < crossoverCutoff; i++) {
                 Individual offspring;
                 if (i < mutationCutoff) {
-                    Genome copiedGenome = (Genome) SerializationUtils.clone(currentSpecies.get(i).getNetwork());
+                    Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(i).getNetwork());
                     offspring = new Individual(copiedGenome, currentIndividualId++);
                 } else {
-                    Genome copiedGenome = (Genome) SerializationUtils.clone(currentSpecies.get(i - mutationCutoff).getNetwork());
+                    Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(i - mutationCutoff).getNetwork());
                     offspring = new Individual(copiedGenome, currentIndividualId++);
                     offspring.mutate(config.getInt("amountOfMutationRolls"), false);
                 }
                 newGeneration.add(offspring);
+
+                if (currentIndividualId == populationSize) {
+                    return newGeneration;
+                }
             }
 
             if (amountOfOffspring[index] - crossoverCutoff == 1) {
-                Genome copiedGenome = (Genome) SerializationUtils.clone(currentSpecies.getFirst().getNetwork());
+                Genome copiedGenome = SerializationUtils.clone(currentSpecies.getFirst().getNetwork());
                 newGeneration.add(new Individual(copiedGenome, currentIndividualId++));
+
+                if (currentIndividualId == populationSize) {
+                    return newGeneration;
+                }
                 continue;
             }
 
@@ -366,6 +374,10 @@ public class Population {
 
 
                 newGeneration.add(offspring);
+
+                if (currentIndividualId == populationSize) {
+                    return newGeneration;
+                }
             }
 
 
