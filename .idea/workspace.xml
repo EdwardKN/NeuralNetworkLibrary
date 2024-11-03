@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="test">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="konflikthelvete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/Activation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Activation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/ConfigLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/ConfigLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/CustomThreadPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/CustomThreadPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/FitnessComputer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/FitnessComputer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Individual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/LinkGene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/LinkGene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/NeuronGene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/NeuronGene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/RandomUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/RandomUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,14 +110,7 @@
       <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="NeuralNetworkLibrary.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.se.klinghammer.neuralNetworkLibrary.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -117,13 +120,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="se.klinghammer.neuralNetworkLibrary.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="se.klinghammer.neuralNetworkLibrary.Main" />
+      <module name="NeuralNetworkLibrary.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Main (1)" />
+      <item itemvalue="Application.se.klinghammer.neuralNetworkLibrary.Main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.se.klinghammer.neuralNetworkLibrary.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -488,11 +498,18 @@
       <option name="project" value="LOCAL" />
       <updated>1730638269851</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="konflikthelvete">
+      <option name="closed" value="true" />
+      <created>1730638330591</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1730638330591</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="banan igen" />
     <MESSAGE value="miss" />
     <MESSAGE value="dumheter" />
     <MESSAGE value="skitsystem" />
@@ -517,6 +534,7 @@
     <MESSAGE value="oj" />
     <MESSAGE value="woops" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="konflikthelvete" />
+    <option name="LAST_COMMIT_MESSAGE" value="konflikthelvete" />
   </component>
 </project>

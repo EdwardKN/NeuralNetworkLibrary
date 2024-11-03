@@ -1,3 +1,5 @@
+package se.klinghammer.neuralNetworkLibrary;
+
 import java.util.Random;
 
 public class RandomUtil {

@@ -1,4 +1,6 @@
-import java.io.*;
+package se.klinghammer.neuralNetworkLibrary;
+
+import java.io.Serializable;
 import java.util.*;
 
 public class Genome implements Serializable {
@@ -50,7 +52,7 @@ public class Genome implements Serializable {
             // Apply activation function
             if (!activatedNeurons.get(inputId)) {
                 activatedNeurons.set(inputId);
-                //NeuronGene inputNeuron = idToNeuron.get(inputId);
+                //se.klinghammer.neuralNetworkLibrary.NeuronGene inputNeuron = idToNeuron.get(inputId);
                 //currentValue.put(inputId, inputNeuron.activate(currentValue.get(inputId)));
 
                 currentValue.put(inputId, Activation.ReLU.activate(currentValue.get(inputId)));
@@ -65,7 +67,7 @@ public class Genome implements Serializable {
         double[] outputs = new double[amountOfOutputs];
 
         for (int i = 0; i < amountOfOutputs; i++) {
-            //outputs[i] = Activation.Sigmoid.activate(currentValue.get(amountOfInputs + i));
+            //outputs[i] = se.klinghammer.neuralNetworkLibrary.Activation.Sigmoid.activate(currentValue.get(amountOfInputs + i));
             outputs[i] = Activation.Tanh.activate(currentValue.get(amountOfInputs + i));
         }
 
@@ -115,7 +117,7 @@ public class Genome implements Serializable {
             neuronValues.put(outputId, propagatedValue);
         }
 
-        /*double value = Activation.Sigmoid.activate(neuronValues.get(amountOfInputs + outputIndex));
+        /*double value = se.klinghammer.neuralNetworkLibrary.Activation.Sigmoid.activate(neuronValues.get(amountOfInputs + outputIndex));
         double[] outputs = propagate(inputs);
         if (value != outputs[outputIndex]) {
             System.out.println("Något är lurt");

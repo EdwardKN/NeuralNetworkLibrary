@@ -1,3 +1,5 @@
+package se.klinghammer.neuralNetworkLibrary;
+
 import java.io.Serializable;
 
 public class LinkGene implements Serializable {

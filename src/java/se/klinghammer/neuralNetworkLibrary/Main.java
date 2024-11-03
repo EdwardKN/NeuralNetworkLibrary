@@ -1,3 +1,5 @@
+package se.klinghammer.neuralNetworkLibrary;
+
 public class Main {
     public static void main(String[] args) {
 

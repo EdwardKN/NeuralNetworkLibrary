@@ -1,3 +1,4 @@
+package se.klinghammer.neuralNetworkLibrary;
 
 public enum Activation {
     None {

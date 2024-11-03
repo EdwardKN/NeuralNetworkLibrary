@@ -1,3 +1,4 @@
+package se.klinghammer.neuralNetworkLibrary;
 
 import java.util.LinkedList;
 import java.util.Queue;
