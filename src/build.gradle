@@ -1,16 +1,38 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 group = 'se.klinghammer'
-version = '0.9.1.4' // Version should match the library version
+version = '0.9.2.1'
+
+publishing {
+    publications {
+        gpr(MavenPublication) {
+            from components.java // Publish the Java components
+            groupId = group
+            artifactId = 'neural-network-library' // Change this if you want a different artifact ID
+            version = project.version
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/EdwardKN/NeuralNetworkLibrary")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
 
 repositories {
-    mavenCentral()
+    mavenCentral() // Repository for dependencies
 }
 
 dependencies {
-    // Define any dependencies needed by the src module
     implementation 'com.google.code.gson:gson:2.11.0'
     implementation 'org.apache.commons:commons-lang3:3.17.0'
 }
@@ -18,10 +40,10 @@ dependencies {
 sourceSets {
     main {
         java {
-            srcDirs = ['java'] // Adjust this according to your directory structure
+            srcDirs = ['java'] // Adjust according to your source directory structure
         }
         resources {
-            srcDirs = ['resources'] // Adjust this according to your directory structure
+            srcDirs = ['resources'] // Adjust according to your resources directory structure
         }
     }
 }
