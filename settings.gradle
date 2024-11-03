@@ -1,4 +1,1 @@
 rootProject.name = 'NeuralNetworkLibrary'
-include 'examples:pendulum'
-findProject(':examples:pendulum')?.name = 'pendulum'
-
