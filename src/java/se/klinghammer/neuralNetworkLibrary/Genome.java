@@ -52,8 +52,8 @@ public class Genome implements Serializable {
             // Apply activation function
             if (!activatedNeurons.get(inputId)) {
                 activatedNeurons.set(inputId);
-                //se.klinghammer.neuralNetworkLibrary.NeuronGene inputNeuron = idToNeuron.get(inputId);
-                //currentValue.put(inputId, inputNeuron.activate(currentValue.get(inputId)));
+                NeuronGene inputNeuron = idToNeuron.get(inputId);
+                currentValue.put(inputId, inputNeuron.activate(currentValue.get(inputId)));
 
                 currentValue.put(inputId, Activation.ReLU.activate(currentValue.get(inputId)));
             }
@@ -67,8 +67,8 @@ public class Genome implements Serializable {
         double[] outputs = new double[amountOfOutputs];
 
         for (int i = 0; i < amountOfOutputs; i++) {
-            //outputs[i] = se.klinghammer.neuralNetworkLibrary.Activation.Sigmoid.activate(currentValue.get(amountOfInputs + i));
-            outputs[i] = Activation.Tanh.activate(currentValue.get(amountOfInputs + i));
+            outputs[i] = se.klinghammer.neuralNetworkLibrary.Activation.Sigmoid.activate(currentValue.get(amountOfInputs + i));
+            //outputs[i] = Activation.Tanh.activate(currentValue.get(amountOfInputs + i));
         }
 
         return outputs;
