@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="borde funka">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="vafan">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle-publish.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle-publish.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -448,7 +448,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730637464798</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="vafan">
+      <option name="closed" value="true" />
+      <created>1730637773514</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1730637773514</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -471,12 +479,12 @@
     <MESSAGE value="liten miss" />
     <MESSAGE value="test" />
     <MESSAGE value="gamla" />
-    <MESSAGE value="vafan" />
     <MESSAGE value="nu då" />
     <MESSAGE value="jävla skit" />
     <MESSAGE value="kanske" />
     <MESSAGE value="jag fattar inte" />
     <MESSAGE value="borde funka" />
-    <option name="LAST_COMMIT_MESSAGE" value="borde funka" />
+    <MESSAGE value="vafan" />
+    <option name="LAST_COMMIT_MESSAGE" value="vafan" />
   </component>
 </project>
