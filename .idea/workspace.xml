@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="woops">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle-publish.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle-publish.yml" afterDir="false" />
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
@@ -481,7 +480,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730637901066</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="test">
+      <option name="closed" value="true" />
+      <created>1730638269851</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1730638269851</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -499,7 +506,6 @@
     <MESSAGE value="kopia från gihub docs" />
     <MESSAGE value="ny library men broken example" />
     <MESSAGE value="liten miss" />
-    <MESSAGE value="test" />
     <MESSAGE value="gamla" />
     <MESSAGE value="nu då" />
     <MESSAGE value="jävla skit" />
@@ -510,6 +516,7 @@
     <MESSAGE value="fix" />
     <MESSAGE value="oj" />
     <MESSAGE value="woops" />
-    <option name="LAST_COMMIT_MESSAGE" value="woops" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
 </project>
