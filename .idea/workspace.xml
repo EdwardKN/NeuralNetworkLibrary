@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="kopia från gihub docs">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/publish-release.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish-release.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/pendulum/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/pendulum/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,29 +34,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
-                <item name="examples" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
-                <item name="examples" type="2d1252cf:ModuleNode" />
-                <item name="pendulum" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
-                <item name="examples" type="2d1252cf:ModuleNode" />
-                <item name="pendulum" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
-                <item name="src" type="2d1252cf:ModuleNode" />
               </path>
             </expand>
             <select />
@@ -84,27 +66,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build NeuralNetworkLibrary.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Load Gradle Dependencies.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.NeuralNetworkLibrary [dependencies].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.NeuralNetworkLibrary.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.NeuralNetworkLibrary:examples:pendulum [:examples:pendulum:Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Dev/Java/IdeaProjects/Monopoly-java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Gradle.Build NeuralNetworkLibrary.executor": "Run",
+    "Gradle.Load Gradle Dependencies.executor": "Run",
+    "Gradle.NeuralNetworkLibrary [:Main.main()].executor": "Run",
+    "Gradle.NeuralNetworkLibrary [dependencies].executor": "Run",
+    "Gradle.NeuralNetworkLibrary.executor": "Run",
+    "Gradle.NeuralNetworkLibrary:examples:pendulum [:examples:pendulum:Main.main()].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Dev/Java/IdeaProjects/NeuralNetworkLibrary/examples",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "actions.on.save"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\examples\pendulum" />

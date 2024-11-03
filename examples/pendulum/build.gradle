@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("https://maven.pkg.github.com/yourusername/yourproject")
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+            password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
+        }
+    }
+}
+
+dependencies {
+    implementation 'se.klinghammer:neural-network-library:0.9.1' // Adjust the group and artifact ID
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['java']
+        }
+        resources {
+            srcDirs = ['resources']
+        }
+    }
+}

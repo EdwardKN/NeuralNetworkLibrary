@@ -19,44 +19,23 @@ publishing {
         }
     }
 }
-
-
-allprojects {
-    apply plugin: 'java'
-
-    repositories {
-        mavenCentral()
-    }
+repositories {
+    mavenCentral()
 }
 
-project(':src') {
-    dependencies {
-        implementation 'com.google.code.gson:gson:2.11.0'
-        implementation 'org.apache.commons:commons-lang3:3.17.0'
-    }
+dependencies {
+    implementation 'com.google.code.gson:gson:2.11.0'
+    implementation 'org.apache.commons:commons-lang3:3.17.0'
+}
 
-    sourceSets {
-        main {
-            java {
-                srcDirs = ['java']
-            }
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/java']
+        }
+        resources {
+            srcDirs = ['src/resources']
         }
     }
 }
 
-project(':examples:pendulum') {
-    dependencies {
-        implementation project(':src')
-    }
-
-    sourceSets {
-        main {
-            java {
-                srcDirs = ['java']
-            }
-            resources {
-                srcDirs = ['resources']
-            }
-        }
-    }
-}
