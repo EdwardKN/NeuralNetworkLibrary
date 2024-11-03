@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="konflikthelvete">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/Activation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Activation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/ConfigLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/ConfigLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/CustomThreadPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/CustomThreadPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/FitnessComputer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/FitnessComputer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Individual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/LinkGene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/LinkGene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/NeuronGene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/NeuronGene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/RandomUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/RandomUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -506,11 +496,26 @@
       <option name="project" value="LOCAL" />
       <updated>1730638330591</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="refractor">
+      <option name="closed" value="true" />
+      <created>1730639765080</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1730639765080</updated>
+    </task>
+    <task id="LOCAL-00047" summary="fix">
+      <option name="closed" value="true" />
+      <created>1730639773630</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1730639773630</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="miss" />
     <MESSAGE value="dumheter" />
     <MESSAGE value="skitsystem" />
     <MESSAGE value="jävla skit helvete" />
@@ -530,11 +535,12 @@
     <MESSAGE value="jag fattar inte" />
     <MESSAGE value="borde funka" />
     <MESSAGE value="vafan" />
-    <MESSAGE value="fix" />
     <MESSAGE value="oj" />
     <MESSAGE value="woops" />
     <MESSAGE value="test" />
     <MESSAGE value="konflikthelvete" />
-    <option name="LAST_COMMIT_MESSAGE" value="konflikthelvete" />
+    <MESSAGE value="refractor" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
 </project>

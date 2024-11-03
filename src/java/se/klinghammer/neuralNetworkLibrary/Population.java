@@ -562,4 +562,8 @@ public class Population {
     public double getAverageFitness() {
         return averageFitness;
     }
+
+    public FitnessComputer getFitnessComputer() {
+        return fitnessComputer;
+    }
 }
