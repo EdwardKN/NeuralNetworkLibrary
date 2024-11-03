@@ -4,25 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="fixad genome">
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/pendulum/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="fixat exempel och möjlig fast activation">
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pendulum/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pendulum/java/FitnessComputerPendulum.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/java/FitnessComputerPendulum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pendulum/java/Pendulum.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/java/Pendulum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pendulum/java/Propagater.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/java/Propagater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pendulum/java/TrainingWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/java/TrainingWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pendulum/resources/exported.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/resources/exported.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pendulum/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Activation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Activation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/ConfigLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/ConfigLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,14 +128,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730574596404</updated>
-    </task>
-    <task id="LOCAL-00001" summary="gradle">
-      <option name="closed" value="true" />
-      <created>1730578518645</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1730578518645</updated>
     </task>
     <task id="LOCAL-00002" summary="missade saker oof">
       <option name="closed" value="true" />
@@ -538,11 +513,18 @@
       <option name="project" value="LOCAL" />
       <updated>1730640983098</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="fixat exempel och möjlig fast activation">
+      <option name="closed" value="true" />
+      <created>1730643395528</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1730643395528</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="jävla skit helvete" />
     <MESSAGE value="skit" />
     <MESSAGE value="jag hatar github" />
     <MESSAGE value="banan nu då" />
@@ -567,6 +549,7 @@
     <MESSAGE value="fix" />
     <MESSAGE value="get fitnesscomputer" />
     <MESSAGE value="fixad genome" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixad genome" />
+    <MESSAGE value="fixat exempel och möjlig fast activation" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixat exempel och möjlig fast activation" />
   </component>
 </project>
