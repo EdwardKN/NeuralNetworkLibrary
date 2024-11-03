@@ -35,12 +35,14 @@ jobs:
 
       - name: Publish artifact
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # or your PAT
-          PACKAGE_VERSION: ${{ github.ref }} # Ensure this extracts the correct tag
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PACKAGE_VERSION: ${{ github.ref }} # This assumes the ref is the tag name
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
+
         run: |
           NEW_VERSION=$(echo "${PACKAGE_VERSION}" | cut -d "/" -f3)
           echo "New version: ${NEW_VERSION}"
           echo "GitHub username: ${GITHUB_ACTOR}"
 
-          # Publish to GitHub Packages
-          ./gradlew -Pversion=${NEW_VERSION} publish --info --stacktrace
+          # Configure the repository for publishing to GitHub Packages
+          ./gradlew -Pversion=${NEW_VERSION} publish -Pgroup=se.klinghammer -PartifactId=neural-network-library --info --stacktrace
