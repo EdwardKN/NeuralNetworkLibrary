@@ -308,11 +308,36 @@ public class Population {
                 (config.getDouble("maxThreshold") - config.getDouble("minThreshold")) * normalizedVariance;
     }
 
+    private void setMutationSpeeds() {
+        double[] differences = new double[individuals.size()];
+        for (int i = 0; i < individuals.size(); i++) {
+            differences[i] = highestFitness - individuals.get(i).getFitness();
+        }
+
+        double maxDiff = differences[0];
+        for (double difference : differences) {
+            if (difference > maxDiff) {
+                maxDiff = difference;
+            }
+        }
+        double min = config.getDouble("minFactor") * maxDiff;
+        double realScalingFactor = config.getDouble("scalingFactor") / (1 - Math.exp(-config.getDouble("steepness")));
+        for (int i = 0; i < differences.length; i++) {
+            double normalized = (1 - Math.exp(-(maxDiff > 0 ? differences[i] / maxDiff : 0) * config.getDouble("steepness"))) * realScalingFactor;
+            normalized = Math.max(normalized, min);
+            individuals.get(i).setCurrentMutationSpeed(normalized);
+        }
+
+    }
+
+
     public List<Individual> reproduce() {
         List<List<Individual>> species = createSpecies();
         int[] amountOfOffspring = calculateSpeciesOffspring(species);
 
         currentSpeciesAmount = species.size();
+
+        setMutationSpeeds();
 
         //System.out.println(currentSpeciesAmount);
 
@@ -328,6 +353,7 @@ public class Population {
             int crossoverCutoff = (int) (currentSpecies.size() * (1 - calculateCrossoverThreshold(currentSpecies)));
 
             int mutationCutoff = (int) (crossoverCutoff * config.getDouble("keepingPart"));
+
 
             //System.out.println("crossover " + crossoverCutoff);
 
@@ -361,12 +387,13 @@ public class Population {
 
             for (int i = crossoverCutoff; i < amountOfOffspring[index]; i++) {
                 Individual offspring;
+                int index1 = i - crossoverCutoff >= currentSpecies.size() ? RandomUtil.random.nextInt(currentSpecies.size() - crossoverCutoff - 1) : i - crossoverCutoff;
                 int index2;
                 do {
-                    index2 = RandomUtil.random.nextInt(amountOfOffspring[index] - crossoverCutoff);
+                    index2 = RandomUtil.random.nextInt(currentSpecies.size() - crossoverCutoff);
                 } while (i == index2);
 
-                Individual parent1 = currentSpecies.get(i - crossoverCutoff);
+                Individual parent1 = currentSpecies.get(index1);
                 Individual parent2 = currentSpecies.get(index2);
 
                 offspring = new Individual(crossover(parent1, parent2), currentIndividualId++);
@@ -445,11 +472,13 @@ public class Population {
         Genome recessiveNetwork = recessive.getNetwork();
         Genome offspring = new Genome(dominantNetwork.getAmountOfInputs(), dominantNetwork.getAmountOfOutputs());
 
+        double mutationSpeed = (dominant.getCurrentMutationSpeed() + recessive.getCurrentMutationSpeed()) / 2;
+
         // Add outputs bias
         for (int i = 0; i < dominantNetwork.getAmountOfOutputs(); i++) {
             int id = dominantNetwork.getAmountOfInputs() + i;
 
-            NeuronGene crossNeuron = crossoverNeuron(dominantNetwork.getNeuronFromId(id), recessiveNetwork.getNeuronFromId(id));
+            NeuronGene crossNeuron = crossoverNeuron(dominantNetwork.getNeuronFromId(id), recessiveNetwork.getNeuronFromId(id), mutationSpeed);
             NeuronGene outputNeuron = offspring.getNeuronFromId(id);
 
             outputNeuron.setBias(crossNeuron.getBias());
@@ -462,7 +491,7 @@ public class Population {
             if (recessiveNeuron == null) {
                 offspring.addNeuron(dominantNeuron);
             } else {
-                offspring.addNeuron(crossoverNeuron(dominantNeuron, recessiveNeuron));
+                offspring.addNeuron(crossoverNeuron(dominantNeuron, recessiveNeuron, mutationSpeed));
             }
         }
 
@@ -473,22 +502,22 @@ public class Population {
             if (recessiveLink == null) {
                 offspring.addLink(dominantLink);
             } else {
-                offspring.addLink(crossoverLink(dominantLink, recessiveLink));
+                offspring.addLink(crossoverLink(dominantLink, recessiveLink, mutationSpeed));
             }
         }
 
         return offspring;
     }
 
-    private NeuronGene crossoverNeuron(NeuronGene neuron1, NeuronGene neuron2) {
-        double bias = (RandomUtil.random.nextDouble() > 0.5 ? neuron1.getBias() : neuron2.getBias()) + (RandomUtil.random.nextDouble() - 2) * config.getDouble("crossoverMutationSpeed");
+    private NeuronGene crossoverNeuron(NeuronGene neuron1, NeuronGene neuron2, double mutationSpeed) {
+        double bias = (RandomUtil.random.nextDouble() > 0.5 ? neuron1.getBias() : neuron2.getBias()) + (RandomUtil.random.nextDouble() - 2) * mutationSpeed;
         Activation activation = RandomUtil.random.nextDouble() > 0.5 ? neuron1.getActivation() : neuron2.getActivation();
 
         return new NeuronGene(neuron1.getId(), bias, activation);
     }
 
-    private LinkGene crossoverLink(LinkGene link1, LinkGene link2) {
-        double weight = (RandomUtil.random.nextDouble() > 0.5 ? link1.getWeight() : link2.getWeight()) + (RandomUtil.random.nextDouble() - 2) * config.getDouble("crossoverMutationSpeed");
+    private LinkGene crossoverLink(LinkGene link1, LinkGene link2, double mutationSpeed) {
+        double weight = (RandomUtil.random.nextDouble() > 0.5 ? link1.getWeight() : link2.getWeight()) + (RandomUtil.random.nextDouble() - 2) * mutationSpeed;
         boolean enabled = link1.isEnabled() && link2.isEnabled();
 
         return new LinkGene(link1.getInputId(), link1.getOutputId(), weight, enabled);

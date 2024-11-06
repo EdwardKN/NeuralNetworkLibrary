@@ -56,7 +56,13 @@ public class FitnessComputerPendulum implements FitnessComputer {
         }
     }
 
+    public int getDone() {
+        return done;
+    }
+
     public void stop() {
-        customThreadPool.stop();
+        if (customThreadPool != null) {
+            customThreadPool.stop();
+        }
     }
 }

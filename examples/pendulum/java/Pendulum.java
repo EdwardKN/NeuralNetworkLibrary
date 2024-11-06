@@ -19,7 +19,7 @@ public class Pendulum extends JPanel {
     private double angularVelocity = 0;
     private double angularAcceleration = 0;
 
-    private double damping = 0.975;
+    private double damping = 0.998;
 
     private double cartX = WIDTH / 2.0;
     private double cartVelocity = 0;

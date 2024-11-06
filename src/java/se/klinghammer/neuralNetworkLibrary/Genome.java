@@ -24,7 +24,7 @@ public class Genome implements Serializable {
         // Input: 0, ..., amountOfInputs - 1
         // Output: amountOfInputs, ..., amountOfInputs + amountOfOutputs - 1
         for (int i = 0; i < amountOfInputs + amountOfOutputs; i++) {
-            addNeuron(new NeuronGene(i));
+            addNeuron(new NeuronGene(i, Population.getConfig().getDouble("scalingFactor")));
         }
     }
 

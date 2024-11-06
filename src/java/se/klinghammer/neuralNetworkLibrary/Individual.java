@@ -15,6 +15,8 @@ public class Individual {
 
     private int removedLinks = 0;
 
+    private double currentMutationSpeed = Population.getConfig().getDouble("scalingFactor");
+
     public Individual(int amountOfInputs, int amountOfOutputs, int id) {
         this.network = new Genome(amountOfInputs, amountOfOutputs);
         this.fitness = 0;
@@ -99,7 +101,7 @@ public class Individual {
             Population.updateLinkToId(linkToSplit, id);
         }
 
-        NeuronGene neuron = new NeuronGene(id);
+        NeuronGene neuron = new NeuronGene(id, currentMutationSpeed);
         network.addNeuron(neuron);
 
         network.addLinkWithXavier(linkToSplit.getInputId(), neuron.getId());
@@ -118,7 +120,7 @@ public class Individual {
             network.reinitializeLinkWithXavier(link);
         } else {
             double value = RandomUtil.random.nextDouble() * 2 - 1;
-            link.setWeight(link.getWeight() + value * Population.getConfig().getDouble("mutationSpeed"));
+            link.setWeight(link.getWeight() + value * currentMutationSpeed);
         }
     }
 
@@ -131,10 +133,10 @@ public class Individual {
         NeuronGene neuron = network.getRandomHiddenOrOutput();
 
         if (RandomUtil.random.nextDouble() < Population.getConfig().getDouble("extremeMutationChance")) {
-            neuron.initializeBias();
+            neuron.initializeBias(currentMutationSpeed);
         } else {
             double value = RandomUtil.random.nextDouble() * 2 - 1;
-            neuron.setBias(neuron.getBias() + value * Population.getConfig().getDouble("mutationSpeed"));
+            neuron.setBias(neuron.getBias() + value * currentMutationSpeed);
         }
     }
 
@@ -207,6 +209,14 @@ public class Individual {
 
     public void setFitness(double fitness) {
         this.fitness = fitness;
+    }
+
+    public double getCurrentMutationSpeed() {
+        return currentMutationSpeed;
+    }
+
+    public void setCurrentMutationSpeed(double currentMutationSpeed) {
+        this.currentMutationSpeed = currentMutationSpeed;
     }
 
     public int getId() {
