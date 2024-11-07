@@ -17,7 +17,7 @@ public class TrainingWindow extends JFrame {
 
     public TrainingWindow() {
         Population.setConfigPath("examples/pendulum/resources/network");
-        boolean render = false;
+        boolean render = true;
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);

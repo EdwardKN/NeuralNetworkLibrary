@@ -41,4 +41,13 @@ public class ConfigLoader {
             return "";
         }
     }
+
+    public Boolean getBoolean(String key) {
+        try {
+            return Boolean.parseBoolean(properties.getProperty(key));
+        } catch (NumberFormatException e) {
+            System.out.println(key);
+            return false;
+        }
+    }
 }

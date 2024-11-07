@@ -360,11 +360,11 @@ public class Population {
             //System.out.println(currentSpecies.getFirst().getFitness());
             for (int i = 0; i < crossoverCutoff; i++) {
                 Individual offspring;
-                if (i < mutationCutoff) {
+                if (i <= mutationCutoff) {
                     Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(i).getNetwork());
                     offspring = new Individual(copiedGenome, currentIndividualId++);
                 } else {
-                    Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(i - mutationCutoff).getNetwork());
+                    Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(config.getBoolean("extremeTossing") ? ((i - mutationCutoff) % mutationCutoff) : i - mutationCutoff).getNetwork());
                     offspring = new Individual(copiedGenome, currentIndividualId++);
                     offspring.mutate(config.getInt("amountOfMutationRolls"), false);
                 }
@@ -375,7 +375,7 @@ public class Population {
                 }
             }
 
-            if (amountOfOffspring[index] - crossoverCutoff == 1) {
+            if (amountOfOffspring[index] - crossoverCutoff == 1 || crossoverCutoff == 0) {
                 Genome copiedGenome = SerializationUtils.clone(currentSpecies.getFirst().getNetwork());
                 newGeneration.add(new Individual(copiedGenome, currentIndividualId++));
 
@@ -387,10 +387,10 @@ public class Population {
 
             for (int i = crossoverCutoff; i < amountOfOffspring[index]; i++) {
                 Individual offspring;
-                int index1 = i - crossoverCutoff >= currentSpecies.size() ? RandomUtil.random.nextInt(currentSpecies.size() - crossoverCutoff - 1) : i - crossoverCutoff;
+                int index1 = i - crossoverCutoff >= currentSpecies.size() ? getWeightedRandomIndex(currentSpecies.size() - crossoverCutoff - 1) : i - crossoverCutoff;
                 int index2;
                 do {
-                    index2 = RandomUtil.random.nextInt(currentSpecies.size() - crossoverCutoff);
+                    index2 = getWeightedRandomIndex(currentSpecies.size() - crossoverCutoff);
                 } while (i == index2);
 
                 Individual parent1 = currentSpecies.get(index1);
@@ -411,6 +411,11 @@ public class Population {
         }
 
         return newGeneration;
+    }
+
+    private int getWeightedRandomIndex(int maxIndex) {
+        double randomFactor = Math.pow(RandomUtil.random.nextDouble(), 2); // Square the random value to favor lower numbers
+        return (int) (randomFactor * (maxIndex + 1));
     }
 
     public void exportToJson(String filePath) {
