@@ -363,10 +363,13 @@ public class Population {
                 if (i <= mutationCutoff) {
                     Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(i).getNetwork());
                     offspring = new Individual(copiedGenome, currentIndividualId++);
-                } else {
+                } else if (mutationCutoff != 0) {
                     Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(config.getBoolean("extremeTossing") ? ((i - mutationCutoff) % mutationCutoff) : i - mutationCutoff).getNetwork());
                     offspring = new Individual(copiedGenome, currentIndividualId++);
                     offspring.mutate(config.getInt("amountOfMutationRolls"), false);
+                } else {
+                    Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(i).getNetwork());
+                    offspring = new Individual(copiedGenome, currentIndividualId++);
                 }
                 newGeneration.add(offspring);
 

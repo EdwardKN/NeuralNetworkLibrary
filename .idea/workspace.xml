@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="start dynamisk mutation">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="extrem utastning som alternativ bra i vissa fall">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pendulum/resources/exported.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/pendulum/java/Pendulum.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/java/Pendulum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/pendulum/java/TrainingWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/java/TrainingWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/ConfigLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/ConfigLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,14 +140,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730574596404</updated>
-    </task>
-    <task id="LOCAL-00008" summary="test">
-      <option name="closed" value="true" />
-      <created>1730580259536</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1730580259536</updated>
     </task>
     <task id="LOCAL-00009" summary="kanske nu">
       <option name="closed" value="true" />
@@ -533,11 +525,18 @@
       <option name="project" value="LOCAL" />
       <updated>1730916838561</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="extrem utastning som alternativ bra i vissa fall">
+      <option name="closed" value="true" />
+      <created>1730973604763</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1730973604763</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="kopia från gihub docs" />
     <MESSAGE value="ny library men broken example" />
     <MESSAGE value="liten miss" />
     <MESSAGE value="gamla" />
@@ -562,7 +561,8 @@
     <MESSAGE value="ändrade inget så funkade det ändå" />
     <MESSAGE value="kanske fixad" />
     <MESSAGE value="start dynamisk mutation" />
-    <option name="LAST_COMMIT_MESSAGE" value="start dynamisk mutation" />
+    <MESSAGE value="extrem utastning som alternativ bra i vissa fall" />
+    <option name="LAST_COMMIT_MESSAGE" value="extrem utastning som alternativ bra i vissa fall" />
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [

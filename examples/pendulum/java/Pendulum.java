@@ -1,5 +1,6 @@
 import se.klinghammer.neuralNetworkLibrary.Activation;
 import se.klinghammer.neuralNetworkLibrary.Individual;
+import se.klinghammer.neuralNetworkLibrary.RandomUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,11 +21,13 @@ public class Pendulum extends JPanel {
     private double angularAcceleration = 0;
 
     private double damping = 0.998;
+    private double dampingCart = 0.925;
 
     private double cartX = WIDTH / 2.0;
     private double cartVelocity = 0;
     private double oldVelocity = 0;
     private final int FPS = 60;
+    private int framesToNextPush = RandomUtil.random.nextInt(50, 200);
 
     private final GameLoop gameLoop = new GameLoop(FPS, true, false);
 
@@ -38,7 +41,7 @@ public class Pendulum extends JPanel {
 
     private Propagater propagater;
 
-    private int loopsToRun = 50 * 60;
+    private int loopsToRun = 25 * 60;
 
     private double cartAcc = 0;
 
@@ -117,10 +120,10 @@ public class Pendulum extends JPanel {
             double height = Math.max(0, getBallPosY());
             double cartCentering = Math.max(0, 1 - Math.abs(getCartX()));
 
-            double stability = Math.abs(angularVelocity);
+            double stability = Math.abs(angularVelocity * 25);
 
             if (getBallPosY() > 0.8) {
-                score += height * cartCentering;// - stability;
+                score += Math.max(0, height * cartCentering - stability);
             }
 
         }
@@ -197,6 +200,14 @@ public class Pendulum extends JPanel {
             setCartAcc(propagater.getCartAcc());
         }
 
+        if (framesToNextPush == 0) {
+            framesToNextPush = RandomUtil.random.nextInt(25, 100);
+
+            setCartAcc((RandomUtil.random.nextDouble() - 0.5) * 2);
+        }
+
+        framesToNextPush--;
+
         cartVelocity += cartAcc;
         cartX += cartVelocity;
 
@@ -217,7 +228,7 @@ public class Pendulum extends JPanel {
         angularVelocity *= damping;
         angle += angularVelocity;
 
-        cartVelocity *= damping;
+        cartVelocity *= dampingCart;
 
         if (cartX <= 0 || cartX >= WIDTH) {
             cartAcc = 0;
