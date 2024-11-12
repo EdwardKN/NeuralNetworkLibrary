@@ -130,6 +130,7 @@ public class Genome implements Serializable {
             System.out.println("Något är lurt");
         }*/
 
+
         return Activation.Sigmoid.activate(neuronValues.get(amountOfInputs + outputIndex));
     }
 

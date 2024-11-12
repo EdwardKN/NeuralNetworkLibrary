@@ -4,11 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="extrem utastning som alternativ bra i vissa fall">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="kanske fixad">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/tictac/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/tictac/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/tictac/java/FitnessComputerTicTacToe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/tictac/java/GameLoop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/tictac/java/GameWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/tictac/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/tictac/java/NetworkAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/tictac/java/Propagater.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/tictac/java/ScreenRefreshRateDetector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/tictac/java/TicTacGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/tictac/resources/network.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pendulum/java/Pendulum.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/java/Pendulum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pendulum/java/TrainingWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/java/TrainingWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +59,19 @@
                 <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
                 <item name="examples" type="2d1252cf:ModuleNode" />
                 <item name="pendulum" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
+                <item name="examples" type="2d1252cf:ModuleNode" />
+                <item name="tictac" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
+                <item name="examples" type="2d1252cf:ModuleNode" />
+                <item name="tictac" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
               </path>
             </expand>
             <select />
@@ -91,6 +116,7 @@
     "Gradle.NeuralNetworkLibrary [dependencies].executor": "Run",
     "Gradle.NeuralNetworkLibrary.executor": "Run",
     "Gradle.NeuralNetworkLibrary:examples:pendulum [:examples:pendulum:Main.main()].executor": "Run",
+    "Gradle.NeuralNetworkLibrary:examples:tictac [:examples:tictac:Main.main()].executor": "Run",
     "Gradle.pendulum [:Main.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -98,7 +124,7 @@
     "git-widget-placeholder": "dynamicMutation",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Dev/Java/IdeaProjects/NeuralNetworkLibrary/src",
+    "last_opened_file_path": "C:/Dev/Java/IdeaProjects/NeuralNetworkLibrary/examples/tictac",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -107,6 +133,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\examples\tictac" />
+      <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\examples\tictac\resources" />
       <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\examples\pendulum" />
       <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\src\examples" />
     </key>
@@ -115,22 +143,18 @@
       <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\src\examples\pendulum" />
       <recent name="C:\Dev\Java\IdeaProjects\NeuralNetworkLibrary\src\main\java" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="NeuralNetworkLibrary.examples.pendulum.main" />
+      <module name="NeuralNetworkLibrary.examples.tictac.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -564,24 +588,31 @@
     <MESSAGE value="extrem utastning som alternativ bra i vissa fall" />
     <option name="LAST_COMMIT_MESSAGE" value="extrem utastning som alternativ bra i vissa fall" />
   </component>
-  <component name="WfRunsListSearchHistory"><![CDATA[{
-  "history": [
+  <component name="WfRunsListSearchHistory">{
+  &quot;history&quot;: [
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "dynamicMutation",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;dynamicMutation&quot;,
+      &quot;currentBranchFilter&quot;: true
     }
   ],
-  "lastFilter": {
-    "branch": "dynamicMutation",
-    "currentBranchFilter": true
+  &quot;lastFilter&quot;: {
+    &quot;branch&quot;: &quot;dynamicMutation&quot;,
+    &quot;currentBranchFilter&quot;: true
   }
-}]]></component>
+}</component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="TicTacGame" memberName="running" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
 </project>

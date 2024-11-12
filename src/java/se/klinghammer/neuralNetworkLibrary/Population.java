@@ -73,7 +73,7 @@ public class Population {
             setConfigPath(configPath);
             computeFitness();
         } else {
-            exportToJson(fileName);
+            exportToJson();
         }
     }
 
@@ -91,7 +91,7 @@ public class Population {
                 .orElse(0.0);
         generations++;
         if (generations >= untilGeneration) {
-            exportToJson(fileName);
+            exportToJson();
             return;
         }
         individuals = reproduce();
@@ -432,6 +432,10 @@ public class Population {
         } catch (IOException e) {
             System.err.println("Error vid export");
         }
+    }
+
+    public void exportToJson() {
+        exportToJson(fileName);
     }
 
     public static Population importFromJson(String filePath) {
