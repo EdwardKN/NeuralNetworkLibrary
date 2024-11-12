@@ -4,24 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="kanske fixad">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/tictac/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/tictac/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/tictac/java/FitnessComputerTicTacToe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/tictac/java/GameLoop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/tictac/java/GameWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/tictac/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/tictac/java/NetworkAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/tictac/java/Propagater.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/tictac/java/ScreenRefreshRateDetector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/tictac/java/TicTacGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/tictac/resources/network.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="start tictac">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/tictac/java/GameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tictac/java/GameLoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/tictac/java/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tictac/java/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/tictac/java/TicTacGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tictac/java/TicTacGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +108,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "dynamicMutation",
+    "git-widget-placeholder": "tictac",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Dev/Java/IdeaProjects/NeuralNetworkLibrary/examples/tictac",
@@ -164,14 +151,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730574596404</updated>
-    </task>
-    <task id="LOCAL-00009" summary="kanske nu">
-      <option name="closed" value="true" />
-      <created>1730580371165</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1730580371165</updated>
     </task>
     <task id="LOCAL-00010" summary="nu då?">
       <option name="closed" value="true" />
@@ -557,11 +536,18 @@
       <option name="project" value="LOCAL" />
       <updated>1730973604763</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="start tictac">
+      <option name="closed" value="true" />
+      <created>1731435568338</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1731435568338</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ny library men broken example" />
     <MESSAGE value="liten miss" />
     <MESSAGE value="gamla" />
     <MESSAGE value="nu då" />
@@ -586,7 +572,8 @@
     <MESSAGE value="kanske fixad" />
     <MESSAGE value="start dynamisk mutation" />
     <MESSAGE value="extrem utastning som alternativ bra i vissa fall" />
-    <option name="LAST_COMMIT_MESSAGE" value="extrem utastning som alternativ bra i vissa fall" />
+    <MESSAGE value="start tictac" />
+    <option name="LAST_COMMIT_MESSAGE" value="start tictac" />
   </component>
   <component name="WfRunsListSearchHistory">{
   &quot;history&quot;: [

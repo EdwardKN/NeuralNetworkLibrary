@@ -28,7 +28,7 @@ public class GameWindow extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Tic Tac Toe");
 
-        boolean rendering = false;
+        boolean rendering = true;
 
         int players = 1;
         if (rendering) {

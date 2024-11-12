@@ -108,10 +108,10 @@ public class TicTacGame extends JPanel {
     }
 
     public int getMaxIndex(double[] array) {
-        int maxIndex = 0;  // Assume the first element is the max initially
+        int maxIndex = 0;
         for (int i = 1; i < array.length; i++) {
             if (array[i] > array[maxIndex]) {
-                maxIndex = i;  // Update max index when a larger value is found
+                maxIndex = i;
             }
         }
         return maxIndex;
@@ -239,7 +239,6 @@ public class TicTacGame extends JPanel {
                 {2, 4, 6}
         };
 
-        // Check each winning combination
         for (int[] combination : winningCombinations) {
             if (board[combination[0]] == player &&
                     board[combination[1]] == player &&

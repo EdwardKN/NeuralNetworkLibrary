@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -18,7 +17,6 @@ public class GameLoop {
     private final boolean canRenderUnprocessedFrames;
 
     public GameLoop(double updatesPerSecond, boolean vSync, boolean canRenderUnprocessedFrames) {
-        // Time between updates in seconds
         double UPDATE_INTERVAL = 1.0 / updatesPerSecond;
         NANOSECONDS_PER_UPDATE = UPDATE_INTERVAL * 1_000_000_000;
 
