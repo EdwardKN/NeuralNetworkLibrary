@@ -32,6 +32,8 @@ public class NeuronGene implements Serializable {
     }
 
     public double activate(double input) {
+        Activation activation = Population.getConfig().getSring("forceHiddenActivationType").isEmpty() ? Activation.None : Activation.getFromString(Population.getConfig().getSring("forceHiddenActivationType"));
+
         return activation.activate(input);
     }
 

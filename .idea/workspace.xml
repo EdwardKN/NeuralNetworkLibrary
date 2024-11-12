@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="kanske fixad">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/NeuronGene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/NeuronGene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,17 +35,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
-                <item name="examples" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="NeuralNetworkLibrary" type="f1a62948:ProjectNode" />
-                <item name="examples" type="2d1252cf:ModuleNode" />
-                <item name="pendulum" type="2d1252cf:ModuleNode" />
               </path>
             </expand>
             <select />
@@ -112,9 +104,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="se.klinghammer.NeuralNetworkLibrary.examples.pendulum.main" />
+      <module name="NeuralNetworkLibrary.examples.pendulum.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -550,6 +542,13 @@
     <MESSAGE value="nu då?" />
     <MESSAGE value="ändrade inget så funkade det ändå" />
     <MESSAGE value="kanske fixad" />
-    <option name="LAST_COMMIT_MESSAGE" value="kanske fixad" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="se.test.neuralNetwork.src.Population" memberName="generations" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
