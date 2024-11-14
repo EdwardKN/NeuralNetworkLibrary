@@ -31,6 +31,7 @@ public class Genome implements Serializable {
         HashMap<Integer, Double> currentValues = new HashMap<>(neurons.size());
         BitSet activatedNeurons = new BitSet(neurons.size());
         HashMap<Integer, Double> localPreviousValues = previousValues.get();
+        localPreviousValues.clear();
 
         for (NeuronGene neuron : neurons) {
             currentValues.put(neuron.getId(), neuron.getBias());
@@ -67,6 +68,8 @@ public class Genome implements Serializable {
         double[] outputs = new double[amountOfOutputs];
 
         for (int i = 0; i < amountOfOutputs; i++) {
+            localPreviousValues.put(amountOfInputs + i, currentValues.get(amountOfInputs + i));
+
             if (Population.getConfig().getSring("forceOutputActivationType").isEmpty()) {
                 outputs[i] = se.klinghammer.neuralNetworkLibrary.Activation.Sigmoid.activate(currentValues.get(amountOfInputs + i));
             } else {
@@ -188,10 +191,11 @@ public class Genome implements Serializable {
         double[] outputs = new double[amountOfOutputs];
 
         for (int i = 0; i < amountOfOutputs; i++) {
+            double output = currentValues.containsKey(amountOfInputs + i) ? currentValues.get(amountOfInputs + i) : newLocalPreviousValues.get(amountOfInputs + i);
             if (Population.getConfig().getSring("forceOutputActivationType").isEmpty()) {
-                outputs[i] = se.klinghammer.neuralNetworkLibrary.Activation.Sigmoid.activate(currentValues.get(amountOfInputs + i));
+                outputs[i] = Activation.Sigmoid.activate(output);
             } else {
-                outputs[i] = Activation.getFromString(Population.getConfig().getSring("forceOutputActivationType")).activate(currentValues.get(amountOfInputs + i));
+                outputs[i] = Activation.getFromString(Population.getConfig().getSring("forceOutputActivationType")).activate(output);
             }
         }
 
