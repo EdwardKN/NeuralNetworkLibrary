@@ -27,7 +27,7 @@ public class Propagater {
         return propagation;
     }
     public void superSpecialShit(int index) {
-        propagation = genome.superSpecialPropagate(networkAdapter.getPack()[index],index);
+        propagation = genome.superSpecialPropagate(networkAdapter.getPack(), index);
     }
 
 

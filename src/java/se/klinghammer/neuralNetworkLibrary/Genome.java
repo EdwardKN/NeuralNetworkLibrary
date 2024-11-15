@@ -53,6 +53,7 @@ public class Genome implements Serializable {
 
         for (int i = 0; i < amountOfInputs; i++) {
             currentValues.put(i, inputs[i]);
+            localPreviousValues.put(i, inputs[i]);
             activatedNeurons.set(i);
         }
 
@@ -177,13 +178,13 @@ public class Genome implements Serializable {
 
 
     // Requirements: propagate(), createInputPaths(), clear previousValues
-    public double[] superSpecialPropagate(double newInput, int inputIndex) {
+    public double[] superSpecialPropagate(double[] inputs, int inputIndex) {
         HashMap<Integer, Double> localPreviousValues = previousValues.get();
         HashMap<Integer, Double> newLocalPreviousValues = new HashMap<>(localPreviousValues);
         HashMap<Integer, Double> currentValues = new HashMap<>();
         BitSet activatedNeurons = new BitSet();
 
-        currentValues.put(inputIndex, newInput);
+        currentValues.put(inputIndex, inputs[inputIndex]);
         activatedNeurons.set(inputIndex);
 
         for (LinkGene link : inputPaths.get(inputIndex)) {
@@ -198,10 +199,10 @@ public class Genome implements Serializable {
 
             Activation activation = idToNeuron.get(inputId).getActivation();
             double newValue = newLocalPreviousValues.get(outputId) + link.getWeight() * (
-                    activation.activate(currentValues.get(inputId)) - activation.activate(localPreviousValues.get(inputId)) );
+                    currentValues.get(inputId) - activation.activate(localPreviousValues.get(inputId)) );
 
             newLocalPreviousValues.put(outputId, newValue);
-            currentValues.put(outputId, )
+            currentValues.put(outputId, idToNeuron.get(inputId).activate((newValue)));
         }
 
         previousValues.set(newLocalPreviousValues);
