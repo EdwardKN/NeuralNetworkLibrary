@@ -56,6 +56,7 @@ public class FitnessComputerTicTacToe implements FitnessComputer {
                             for (StackTraceElement stackTraceElement : e.getStackTrace()) {
                                 System.err.println("Line: " + stackTraceElement.getLineNumber() + " in " + stackTraceElement.getClassName());
                             }
+                            System.out.println("he");
                         }
                     });
                 }

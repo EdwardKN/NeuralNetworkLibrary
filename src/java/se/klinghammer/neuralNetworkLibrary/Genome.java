@@ -1,6 +1,7 @@
 package se.klinghammer.neuralNetworkLibrary;
 
-import java.io.IOException;
+import org.apache.commons.lang3.SerializationUtils;
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -12,6 +13,8 @@ public class Genome implements Serializable {
     private final List<LinkGene> links = new ArrayList<>();
     // Performance
     private final HashMap<Integer, NeuronGene> idToNeuron = new HashMap<>();
+    private transient ThreadLocal<HashMap<Integer, Double>> previousValues;
+    private List<List<LinkGene>> inputPaths;
 
     public Genome(int amountOfInputs, int amountOfOutputs) {
         if (amountOfInputs <= 0 || amountOfOutputs <= 0) {
@@ -21,14 +24,22 @@ public class Genome implements Serializable {
         this.amountOfInputs = amountOfInputs;
         this.amountOfOutputs = amountOfOutputs;
 
+        // Input: 0, ..., amountOfInputs - 1
+        // Output: amountOfInputs, ..., amountOfInputs + amountOfOutputs - 1
         for (int i = 0; i < amountOfInputs + amountOfOutputs; i++) {
             addNeuron(new NeuronGene(i, Population.getConfig().getDouble("scalingFactor")));
         }
-
-        this.previousValues = ThreadLocal.withInitial(HashMap::new);
         createInputPaths();
+        previousValues = ThreadLocal.withInitial(HashMap::new);
+
     }
 
+    public Genome deepClone() {
+        Genome clonedGenome = SerializationUtils.clone(this);
+        clonedGenome.previousValues = ThreadLocal.withInitial(HashMap::new);
+
+        return clonedGenome;
+    }
 
     public double[] propagate(double[] inputs) {
         HashMap<Integer, Double> currentValues = new HashMap<>(neurons.size());
@@ -72,6 +83,7 @@ public class Genome implements Serializable {
 
         for (int i = 0; i < amountOfOutputs; i++) {
             localPreviousValues.put(amountOfInputs + i, currentValues.get(amountOfInputs + i));
+
             if (Population.getConfig().getSring("forceOutputActivationType").isEmpty()) {
                 outputs[i] = se.klinghammer.neuralNetworkLibrary.Activation.Sigmoid.activate(currentValues.get(amountOfInputs + i));
             } else {
@@ -134,7 +146,6 @@ public class Genome implements Serializable {
             System.out.println("Något är lurt");
         }*/
 
-
         return Activation.Sigmoid.activate(neuronValues.get(amountOfInputs + outputIndex));
     }
 
@@ -163,9 +174,6 @@ public class Genome implements Serializable {
 
         inputPaths = paths;
     }
-
-    private transient ThreadLocal<HashMap<Integer, Double>> previousValues;
-    private List<List<LinkGene>> inputPaths;
 
 
     // Requirements: propagate(), createInputPaths(), clear previousValues
@@ -494,11 +502,6 @@ public class Genome implements Serializable {
 
     public int getComplexity() {
         return neurons.size() + (int) links.stream().filter(LinkGene::isEnabled).count();
-    }
-
-    private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException {
-        in.defaultReadObject();
-        previousValues = ThreadLocal.withInitial(HashMap::new);
     }
 
 }
