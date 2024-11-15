@@ -1,5 +1,7 @@
 package se.klinghammer.neuralNetworkLibrary;
 
+import org.apache.commons.lang3.SerializationUtils;
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -11,6 +13,8 @@ public class Genome implements Serializable {
     private final List<LinkGene> links = new ArrayList<>();
     // Performance
     private final HashMap<Integer, NeuronGene> idToNeuron = new HashMap<>();
+    private transient ThreadLocal<HashMap<Integer, Double>> previousValues = ThreadLocal.withInitial(HashMap::new);
+    private List<List<LinkGene>> inputPaths = createInputPaths();
 
     public Genome(int amountOfInputs, int amountOfOutputs) {
         if (amountOfInputs <= 0 || amountOfOutputs <= 0) {
@@ -25,6 +29,13 @@ public class Genome implements Serializable {
         for (int i = 0; i < amountOfInputs + amountOfOutputs; i++) {
             addNeuron(new NeuronGene(i, Population.getConfig().getDouble("scalingFactor")));
         }
+    }
+
+    public Genome deepClone() {
+        Genome clonedGenome = SerializationUtils.clone(this);
+        clonedGenome.previousValues = ThreadLocal.withInitial(HashMap::new);
+
+        return clonedGenome;
     }
 
     public double[] propagate(double[] inputs) {
@@ -158,9 +169,6 @@ public class Genome implements Serializable {
 
         return paths;
     }
-
-    private transient ThreadLocal<HashMap<Integer, Double>> previousValues = ThreadLocal.withInitial(HashMap::new);
-    private transient List<List<LinkGene>> inputPaths = createInputPaths();
 
 
     // Requirements: propagate(), createInputPaths(), clear previousValues

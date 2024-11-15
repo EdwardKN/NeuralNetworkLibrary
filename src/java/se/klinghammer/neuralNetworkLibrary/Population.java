@@ -2,7 +2,6 @@ package se.klinghammer.neuralNetworkLibrary;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.apache.commons.lang3.SerializationUtils;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -360,15 +359,16 @@ public class Population {
             //System.out.println(currentSpecies.getFirst().getFitness());
             for (int i = 0; i < crossoverCutoff; i++) {
                 Individual offspring;
+
                 if (i <= mutationCutoff) {
-                    Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(i).getNetwork());
+                    Genome copiedGenome = currentSpecies.get(i).getNetwork().deepClone();
                     offspring = new Individual(copiedGenome, currentIndividualId++);
                 } else if (mutationCutoff != 0) {
-                    Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(config.getBoolean("extremeTossing") ? ((i - mutationCutoff) % mutationCutoff) : i - mutationCutoff).getNetwork());
+                    Genome copiedGenome = currentSpecies.get(config.getBoolean("extremeTossing") ? ((i - mutationCutoff) % mutationCutoff) : i - mutationCutoff).getNetwork().deepClone();
                     offspring = new Individual(copiedGenome, currentIndividualId++);
                     offspring.mutate(config.getInt("amountOfMutationRolls"), false);
                 } else {
-                    Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(i).getNetwork());
+                    Genome copiedGenome = currentSpecies.get(i).getNetwork().deepClone();
                     offspring = new Individual(copiedGenome, currentIndividualId++);
                 }
                 newGeneration.add(offspring);
@@ -379,7 +379,7 @@ public class Population {
             }
 
             if (amountOfOffspring[index] - crossoverCutoff == 1 || crossoverCutoff == 0) {
-                Genome copiedGenome = SerializationUtils.clone(currentSpecies.getFirst().getNetwork());
+                Genome copiedGenome = currentSpecies.getFirst().getNetwork().deepClone();
                 newGeneration.add(new Individual(copiedGenome, currentIndividualId++));
 
                 if (currentIndividualId == populationSize) {
