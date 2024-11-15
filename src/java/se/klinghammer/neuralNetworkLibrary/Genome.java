@@ -20,21 +20,17 @@ public class Genome implements Serializable {
 
         this.amountOfInputs = amountOfInputs;
         this.amountOfOutputs = amountOfOutputs;
-        this.previousValues = ThreadLocal.withInitial(HashMap::new);
 
-        // Other initialization code
         for (int i = 0; i < amountOfInputs + amountOfOutputs; i++) {
             addNeuron(new NeuronGene(i, Population.getConfig().getDouble("scalingFactor")));
         }
 
+        this.previousValues = ThreadLocal.withInitial(HashMap::new);
         createInputPaths();
     }
 
 
     public double[] propagate(double[] inputs) {
-        if (previousValues == null) {
-            this.previousValues = ThreadLocal.withInitial(HashMap::new);
-        }
         HashMap<Integer, Double> currentValues = new HashMap<>(neurons.size());
         BitSet activatedNeurons = new BitSet(neurons.size());
         HashMap<Integer, Double> localPreviousValues = previousValues.get();

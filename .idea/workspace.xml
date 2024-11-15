@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="kommentarer">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="fuckad merge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/tictac/java/FitnessComputerTicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tictac/java/FitnessComputerTicTacToe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/tictac/java/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tictac/java/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/tictac/java/Propagater.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tictac/java/Propagater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/tictac/java/TicTacGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tictac/java/TicTacGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/NeuronGene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/NeuronGene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +108,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Merging tictac",
+    "git-widget-placeholder": "tictac",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Dev/Java/IdeaProjects/NeuralNetworkLibrary/examples/tictac",
@@ -156,14 +151,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730574596404</updated>
-    </task>
-    <task id="LOCAL-00010" summary="nu då?">
-      <option name="closed" value="true" />
-      <created>1730580551976</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1730580551976</updated>
     </task>
     <task id="LOCAL-00011" summary="nu hoppas jag">
       <option name="closed" value="true" />
@@ -549,11 +536,18 @@
       <option name="project" value="LOCAL" />
       <updated>1731435568338</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="fuckad merge">
+      <option name="closed" value="true" />
+      <created>1731664635490</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1731664635490</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="gamla" />
     <MESSAGE value="nu då" />
     <MESSAGE value="jävla skit" />
     <MESSAGE value="kanske" />
@@ -578,7 +572,8 @@
     <MESSAGE value="extrem utastning som alternativ bra i vissa fall" />
     <MESSAGE value="start tictac" />
     <MESSAGE value="kommentarer" />
-    <option name="LAST_COMMIT_MESSAGE" value="kommentarer" />
+    <MESSAGE value="fuckad merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="fuckad merge" />
   </component>
   <component name="WfRunsListSearchHistory">{
   &quot;history&quot;: [
@@ -607,11 +602,6 @@
           <url>file://$PROJECT_DIR$/examples/tictac/java/TicTacGame.java</url>
           <line>85</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/examples/tictac/java/FitnessComputerTicTacToe.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
