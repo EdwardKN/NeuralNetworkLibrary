@@ -26,6 +26,10 @@ public class Propagater {
     public double[] getPropagation() {
         return propagation;
     }
+    public void superSpecialShit(int index) {
+        propagation = genome.superSpecialPropagate(networkAdapter.getPack()[index],index);
+    }
+
 
     public void addFitness(double fitness) {
         individual.setFitness(individual.getFitness() + fitness);

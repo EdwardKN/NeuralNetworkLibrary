@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="start tictac">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="kommentarer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/tictac/java/GameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tictac/java/GameLoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" beforeDir="false" afterPath="$PROJECT_DIR$/examples/pendulum/resources/network.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/tictac/java/FitnessComputerTicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tictac/java/FitnessComputerTicTacToe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/tictac/java/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tictac/java/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/tictac/java/Propagater.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tictac/java/Propagater.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/tictac/java/TicTacGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tictac/java/TicTacGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/NeuronGene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/NeuronGene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,12 +108,12 @@
     "Gradle.NeuralNetworkLibrary [dependencies].executor": "Run",
     "Gradle.NeuralNetworkLibrary.executor": "Run",
     "Gradle.NeuralNetworkLibrary:examples:pendulum [:examples:pendulum:Main.main()].executor": "Run",
-    "Gradle.NeuralNetworkLibrary:examples:tictac [:examples:tictac:Main.main()].executor": "Run",
+    "Gradle.NeuralNetworkLibrary:examples:tictac [:examples:tictac:Main.main()].executor": "Debug",
     "Gradle.pendulum [:Main.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "tictac",
+    "git-widget-placeholder": "Merging tictac",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Dev/Java/IdeaProjects/NeuralNetworkLibrary/examples/tictac",
@@ -548,7 +553,6 @@
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="liten miss" />
     <MESSAGE value="gamla" />
     <MESSAGE value="nu då" />
     <MESSAGE value="jävla skit" />
@@ -573,7 +577,8 @@
     <MESSAGE value="start dynamisk mutation" />
     <MESSAGE value="extrem utastning som alternativ bra i vissa fall" />
     <MESSAGE value="start tictac" />
-    <option name="LAST_COMMIT_MESSAGE" value="start tictac" />
+    <MESSAGE value="kommentarer" />
+    <option name="LAST_COMMIT_MESSAGE" value="kommentarer" />
   </component>
   <component name="WfRunsListSearchHistory">{
   &quot;history&quot;: [
@@ -596,6 +601,20 @@
   }
 }</component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/examples/tictac/java/TicTacGame.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/examples/tictac/java/FitnessComputerTicTacToe.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="TicTacGame" memberName="running" />

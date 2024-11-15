@@ -60,6 +60,13 @@ public class TicTacGame extends JPanel {
     public void run(int sleepTime) {
         running = true;
 
+        if (propagaterCross != null) {
+            propagaterCross.propagate();
+        }
+        if (propagaterCross != null) {
+            propagaterCross.propagate();
+        }
+
         while (running) {
             if (sleepTime != 0) {
                 try {
@@ -69,7 +76,6 @@ public class TicTacGame extends JPanel {
                 }
             }
             if (xTurn && propagaterCross != null) {
-                propagaterCross.propagate();
                 double[] propagation = propagaterCross.getPropagation();
 
                 for (int i = 0; i < disabled.length; i++) {
@@ -83,8 +89,8 @@ public class TicTacGame extends JPanel {
                 int maxIndex = getMaxIndex(propagation);
 
                 updateSquare(maxIndex);
+
             } else if (propagaterNought != null) {
-                propagaterNought.propagate();
                 double[] propagation = propagaterNought.getPropagation();
 
                 for (int i = 0; i < disabled.length; i++) {
@@ -100,8 +106,13 @@ public class TicTacGame extends JPanel {
             }
         }
 
-        propagaterNought.addFitness(winner == CellState.NOUGHT ? 1 : 0);
-        propagaterCross.addFitness(winner == CellState.CROSS ? 1 : 0);
+
+        if (propagaterNought != null) {
+            propagaterNought.addFitness(winner == CellState.NOUGHT ? 1 : 0);
+        }
+        if (propagaterCross != null) {
+            propagaterCross.addFitness(winner == CellState.CROSS ? 1 : 0);
+        }
         if (taskOnFinish != null) {
             taskOnFinish.run();
         }
@@ -222,6 +233,13 @@ public class TicTacGame extends JPanel {
                     }
                 }
             }
+        }
+
+        if (propagaterCross != null) {
+            propagaterCross.superSpecialShit(index);
+        }
+        if (propagaterCross != null) {
+            propagaterCross.superSpecialShit(index);
         }
 
         xTurn = !xTurn;

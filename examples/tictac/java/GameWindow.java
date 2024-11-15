@@ -28,9 +28,9 @@ public class GameWindow extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Tic Tac Toe");
 
-        boolean rendering = true;
+        boolean rendering = false;
 
-        int players = 1;
+        int players = 2;
         if (rendering) {
 
             population = Population.importFromJson("examples/tictac/resources/exported.json");
@@ -68,12 +68,12 @@ public class GameWindow extends JFrame {
             population = Population.importFromJson("examples/tictac/resources/exported.json");
 
             if (population == null) {
-                population = new Population(250, NetworkAdapter.getInputAmount(), Propagater.getOutputAmount(), "examples/tictac/resources/exported.json");
+                population = new Population(250, NetworkAdapter.getInputAmount(), Propagater.getOutputAmount(), "examples/tictac/resources/exported.json", true);
             }
 
             population.setFitnessComputer(new FitnessComputerTicTacToe(population));
 
-            population.run(5000);
+            population.run(250);
 
             labels = new JLabel[6];
 

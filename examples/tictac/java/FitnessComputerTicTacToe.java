@@ -51,11 +51,12 @@ public class FitnessComputerTicTacToe implements FitnessComputer {
                             ticTacGame.run(0);
 
                         } catch (Exception e) {
-                            System.err.println("Shit failed, not retrying, fuck you: " + e.getMessage());
+                            System.err.println("Shit failed, not retrying, fuck you: " + e.getMessage() + "   ");
 
                             for (StackTraceElement stackTraceElement : e.getStackTrace()) {
                                 System.err.println("Line: " + stackTraceElement.getLineNumber() + " in " + stackTraceElement.getClassName());
                             }
+                            System.out.println("");
                         }
                     });
                 }
@@ -80,6 +81,7 @@ public class FitnessComputerTicTacToe implements FitnessComputer {
                 }
             }
             for (int i = 0; i < averaged.length; i++) {
+                System.out.println(averaged[i]);
                 population.getIndividuals().get(i).setFitness(averaged[i]);
             }
 
