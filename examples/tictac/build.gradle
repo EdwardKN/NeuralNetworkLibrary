@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group = 'se.klinghammer'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':src') // Ensure this correctly references the src module
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['java'] // Adjust this according to your directory structure
+        }
+        resources {
+            srcDirs = ['resources'] // Adjust this according to your directory structure
+        }
+    }
+}

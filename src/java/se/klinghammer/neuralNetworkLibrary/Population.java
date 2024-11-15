@@ -59,6 +59,7 @@ public class Population {
             individual.mutate(config.getInt("amountOfMutationRolls"), false);
             individuals.add(individual);
         }
+
     }
 
     public static void setConfigPath(String configPath) {
@@ -70,9 +71,13 @@ public class Population {
         this.untilGeneration = untilGeneration;
         if (generations < untilGeneration) {
             setConfigPath(configPath);
+            for (Individual individual : individuals) {
+                individual.getNetwork().createInputPaths();
+                individual.getNetwork().propagate(new double[individual.getNetwork().getAmountOfInputs()]);
+            }
             computeFitness();
         } else {
-            exportToJson(fileName);
+            exportToJson();
         }
     }
 
@@ -90,7 +95,7 @@ public class Population {
                 .orElse(0.0);
         generations++;
         if (generations >= untilGeneration) {
-            exportToJson(fileName);
+            exportToJson();
             return;
         }
         individuals = reproduce();
@@ -322,7 +327,7 @@ public class Population {
         double min = config.getDouble("minFactor") * maxDiff;
         double realScalingFactor = config.getDouble("scalingFactor") / (1 - Math.exp(-config.getDouble("steepness")));
         for (int i = 0; i < differences.length; i++) {
-            double normalized = (1 - Math.exp(-(maxDiff > 0 ? differences[i] / maxDiff : 0) * config.getDouble("steepness"))) * realScalingFactor;
+            double normalized = (1 - Math.exp(-(maxDiff > 0 ? differences[i] / maxDiff : 1) * config.getDouble("steepness"))) * realScalingFactor;
             normalized = Math.max(normalized, min);
             individuals.get(i).setCurrentMutationSpeed(normalized);
         }
@@ -409,8 +414,6 @@ public class Population {
                     return newGeneration;
                 }
             }
-
-
         }
 
         return newGeneration;
@@ -432,6 +435,10 @@ public class Population {
         } catch (IOException e) {
             System.err.println("Error vid export");
         }
+    }
+
+    public void exportToJson() {
+        exportToJson(fileName);
     }
 
     public static Population importFromJson(String filePath) {

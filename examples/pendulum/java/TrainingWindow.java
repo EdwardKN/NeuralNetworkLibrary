@@ -53,7 +53,7 @@ public class TrainingWindow extends JFrame {
 
             population.setFitnessComputer(new FitnessComputerPendulum(population));
 
-            population.run(100);
+            population.run(25);
         }
         labels = new JLabel[6];
 
