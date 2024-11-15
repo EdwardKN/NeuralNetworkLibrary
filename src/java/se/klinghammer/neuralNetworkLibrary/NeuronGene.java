@@ -7,10 +7,10 @@ public class NeuronGene implements Serializable {
     private double bias;
     private Activation activation;
 
-    public NeuronGene(int id) {
+    public NeuronGene(int id, double mutationSpeed) {
         this.id = id;
         this.activation = Activation.None;
-        initializeBias();
+        initializeBias(mutationSpeed);
     }
 
     public NeuronGene(int id, double bias, Activation activation) {
@@ -19,8 +19,8 @@ public class NeuronGene implements Serializable {
         this.activation = activation;
     }
 
-    public void initializeBias() {
-        bias = Population.getConfig().getDouble("neuronBiasStartRange") * (RandomUtil.random.nextDouble() * 2 - 1);
+    public void initializeBias(double mutationSpeed) {
+        bias = mutationSpeed * (RandomUtil.random.nextDouble() * 2 - 1);
     }
 
     public double getBias() {
@@ -32,6 +32,8 @@ public class NeuronGene implements Serializable {
     }
 
     public double activate(double input) {
+        Activation activation = Population.getConfig().getSring("forceHiddenActivationType").isEmpty() ? Activation.None : Activation.getFromString(Population.getConfig().getSring("forceHiddenActivationType"));
+
         return activation.activate(input);
     }
 

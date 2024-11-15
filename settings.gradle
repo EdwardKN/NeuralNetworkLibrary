@@ -1,3 +1,6 @@
 rootProject.name = 'NeuralNetworkLibrary'
 include ':src'
 include ':examples:pendulum'
+include 'examples:tictac'
+findProject(':examples:tictac')?.name = 'tictac'
+

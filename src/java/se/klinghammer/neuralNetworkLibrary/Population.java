@@ -2,7 +2,6 @@ package se.klinghammer.neuralNetworkLibrary;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.apache.commons.lang3.SerializationUtils;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -60,6 +59,7 @@ public class Population {
             individual.mutate(config.getInt("amountOfMutationRolls"), false);
             individuals.add(individual);
         }
+
     }
 
     public static void setConfigPath(String configPath) {
@@ -71,9 +71,13 @@ public class Population {
         this.untilGeneration = untilGeneration;
         if (generations < untilGeneration) {
             setConfigPath(configPath);
+            for (Individual individual : individuals) {
+                individual.getNetwork().createInputPaths();
+                individual.getNetwork().propagate(new double[individual.getNetwork().getAmountOfInputs()]);
+            }
             computeFitness();
         } else {
-            exportToJson(fileName);
+            exportToJson();
         }
     }
 
@@ -91,7 +95,7 @@ public class Population {
                 .orElse(0.0);
         generations++;
         if (generations >= untilGeneration) {
-            exportToJson(fileName);
+            exportToJson();
             return;
         }
         individuals = reproduce();
@@ -308,11 +312,36 @@ public class Population {
                 (config.getDouble("maxThreshold") - config.getDouble("minThreshold")) * normalizedVariance;
     }
 
+    private void setMutationSpeeds() {
+        double[] differences = new double[individuals.size()];
+        for (int i = 0; i < individuals.size(); i++) {
+            differences[i] = highestFitness - individuals.get(i).getFitness();
+        }
+
+        double maxDiff = differences[0];
+        for (double difference : differences) {
+            if (difference > maxDiff) {
+                maxDiff = difference;
+            }
+        }
+        double min = config.getDouble("minFactor") * maxDiff;
+        double realScalingFactor = config.getDouble("scalingFactor") / (1 - Math.exp(-config.getDouble("steepness")));
+        for (int i = 0; i < differences.length; i++) {
+            double normalized = (1 - Math.exp(-(maxDiff > 0 ? differences[i] / maxDiff : 1) * config.getDouble("steepness"))) * realScalingFactor;
+            normalized = Math.max(normalized, min);
+            individuals.get(i).setCurrentMutationSpeed(normalized);
+        }
+
+    }
+
+
     public List<Individual> reproduce() {
         List<List<Individual>> species = createSpecies();
         int[] amountOfOffspring = calculateSpeciesOffspring(species);
 
         currentSpeciesAmount = species.size();
+
+        setMutationSpeeds();
 
         //System.out.println(currentSpeciesAmount);
 
@@ -329,18 +358,23 @@ public class Population {
 
             int mutationCutoff = (int) (crossoverCutoff * config.getDouble("keepingPart"));
 
+
             //System.out.println("crossover " + crossoverCutoff);
 
             //System.out.println(currentSpecies.getFirst().getFitness());
             for (int i = 0; i < crossoverCutoff; i++) {
                 Individual offspring;
-                if (i < mutationCutoff) {
-                    Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(i).getNetwork());
+
+                if (i <= mutationCutoff) {
+                    Genome copiedGenome = currentSpecies.get(i).getNetwork().deepClone();
                     offspring = new Individual(copiedGenome, currentIndividualId++);
-                } else {
-                    Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(i - mutationCutoff).getNetwork());
+                } else if (mutationCutoff != 0) {
+                    Genome copiedGenome = currentSpecies.get(config.getBoolean("extremeTossing") ? ((i - mutationCutoff) % mutationCutoff) : i - mutationCutoff).getNetwork().deepClone();
                     offspring = new Individual(copiedGenome, currentIndividualId++);
                     offspring.mutate(config.getInt("amountOfMutationRolls"), false);
+                } else {
+                    Genome copiedGenome = currentSpecies.get(i).getNetwork().deepClone();
+                    offspring = new Individual(copiedGenome, currentIndividualId++);
                 }
                 newGeneration.add(offspring);
 
@@ -349,8 +383,8 @@ public class Population {
                 }
             }
 
-            if (amountOfOffspring[index] - crossoverCutoff == 1) {
-                Genome copiedGenome = SerializationUtils.clone(currentSpecies.getFirst().getNetwork());
+            if (amountOfOffspring[index] - crossoverCutoff == 1 || crossoverCutoff == 0) {
+                Genome copiedGenome = currentSpecies.getFirst().getNetwork().deepClone();
                 newGeneration.add(new Individual(copiedGenome, currentIndividualId++));
 
                 if (currentIndividualId == populationSize) {
@@ -361,12 +395,13 @@ public class Population {
 
             for (int i = crossoverCutoff; i < amountOfOffspring[index]; i++) {
                 Individual offspring;
+                int index1 = i - crossoverCutoff >= currentSpecies.size() ? getWeightedRandomIndex(currentSpecies.size() - crossoverCutoff - 1) : i - crossoverCutoff;
                 int index2;
                 do {
-                    index2 = RandomUtil.random.nextInt(amountOfOffspring[index] - crossoverCutoff);
+                    index2 = getWeightedRandomIndex(currentSpecies.size() - crossoverCutoff);
                 } while (i == index2);
 
-                Individual parent1 = currentSpecies.get(i - crossoverCutoff);
+                Individual parent1 = currentSpecies.get(index1);
                 Individual parent2 = currentSpecies.get(index2);
 
                 offspring = new Individual(crossover(parent1, parent2), currentIndividualId++);
@@ -379,11 +414,14 @@ public class Population {
                     return newGeneration;
                 }
             }
-
-
         }
 
         return newGeneration;
+    }
+
+    private int getWeightedRandomIndex(int maxIndex) {
+        double randomFactor = Math.pow(RandomUtil.random.nextDouble(), 2); // Square the random value to favor lower numbers
+        return (int) (randomFactor * (maxIndex + 1));
     }
 
     public void exportToJson(String filePath) {
@@ -399,6 +437,10 @@ public class Population {
         }
     }
 
+    public void exportToJson() {
+        exportToJson(fileName);
+    }
+
     public static Population importFromJson(String filePath) {
         setConfigPath(configPath);
         Gson gson = new Gson();
@@ -407,6 +449,10 @@ public class Population {
             filePopulation = gson.fromJson(reader, Population.class);
         } catch (IOException e) {
             return null;
+        }
+
+        for (Individual individual : filePopulation.individuals) {
+            individual.getNetwork().resetPreviousValues();
         }
 
         return filePopulation;
@@ -445,11 +491,13 @@ public class Population {
         Genome recessiveNetwork = recessive.getNetwork();
         Genome offspring = new Genome(dominantNetwork.getAmountOfInputs(), dominantNetwork.getAmountOfOutputs());
 
+        double mutationSpeed = (dominant.getCurrentMutationSpeed() + recessive.getCurrentMutationSpeed()) / 2;
+
         // Add outputs bias
         for (int i = 0; i < dominantNetwork.getAmountOfOutputs(); i++) {
             int id = dominantNetwork.getAmountOfInputs() + i;
 
-            NeuronGene crossNeuron = crossoverNeuron(dominantNetwork.getNeuronFromId(id), recessiveNetwork.getNeuronFromId(id));
+            NeuronGene crossNeuron = crossoverNeuron(dominantNetwork.getNeuronFromId(id), recessiveNetwork.getNeuronFromId(id), mutationSpeed);
             NeuronGene outputNeuron = offspring.getNeuronFromId(id);
 
             outputNeuron.setBias(crossNeuron.getBias());
@@ -462,7 +510,7 @@ public class Population {
             if (recessiveNeuron == null) {
                 offspring.addNeuron(dominantNeuron);
             } else {
-                offspring.addNeuron(crossoverNeuron(dominantNeuron, recessiveNeuron));
+                offspring.addNeuron(crossoverNeuron(dominantNeuron, recessiveNeuron, mutationSpeed));
             }
         }
 
@@ -473,22 +521,22 @@ public class Population {
             if (recessiveLink == null) {
                 offspring.addLink(dominantLink);
             } else {
-                offspring.addLink(crossoverLink(dominantLink, recessiveLink));
+                offspring.addLink(crossoverLink(dominantLink, recessiveLink, mutationSpeed));
             }
         }
 
         return offspring;
     }
 
-    private NeuronGene crossoverNeuron(NeuronGene neuron1, NeuronGene neuron2) {
-        double bias = (RandomUtil.random.nextDouble() > 0.5 ? neuron1.getBias() : neuron2.getBias()) + (RandomUtil.random.nextDouble() - 2) * config.getDouble("crossoverMutationSpeed");
+    private NeuronGene crossoverNeuron(NeuronGene neuron1, NeuronGene neuron2, double mutationSpeed) {
+        double bias = (RandomUtil.random.nextDouble() > 0.5 ? neuron1.getBias() : neuron2.getBias()) + (RandomUtil.random.nextDouble() - 2) * mutationSpeed;
         Activation activation = RandomUtil.random.nextDouble() > 0.5 ? neuron1.getActivation() : neuron2.getActivation();
 
         return new NeuronGene(neuron1.getId(), bias, activation);
     }
 
-    private LinkGene crossoverLink(LinkGene link1, LinkGene link2) {
-        double weight = (RandomUtil.random.nextDouble() > 0.5 ? link1.getWeight() : link2.getWeight()) + (RandomUtil.random.nextDouble() - 2) * config.getDouble("crossoverMutationSpeed");
+    private LinkGene crossoverLink(LinkGene link1, LinkGene link2, double mutationSpeed) {
+        double weight = (RandomUtil.random.nextDouble() > 0.5 ? link1.getWeight() : link2.getWeight()) + (RandomUtil.random.nextDouble() - 2) * mutationSpeed;
         boolean enabled = link1.isEnabled() && link2.isEnabled();
 
         return new LinkGene(link1.getInputId(), link1.getOutputId(), weight, enabled);
