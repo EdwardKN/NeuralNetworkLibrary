@@ -24,6 +24,8 @@ public class TicTacGame extends JPanel {
 
     private CellState winner;
 
+    private int sleepTime;
+
     public enum CellState {
         EMPTY(""),
         NOUGHT("O"),
@@ -57,7 +59,9 @@ public class TicTacGame extends JPanel {
         this.taskOnFinish = taskOnFinish;
     }
 
-    public void run(int sleepTime) {
+    public void run(int currentSleepTime) {
+
+        this.sleepTime = currentSleepTime;
         running = true;
 
         if (propagaterCross != null) {
@@ -68,6 +72,7 @@ public class TicTacGame extends JPanel {
         }
 
         while (running) {
+
             if (sleepTime != 0) {
                 try {
                     Thread.sleep(sleepTime);
@@ -130,7 +135,7 @@ public class TicTacGame extends JPanel {
     public TicTacGame(boolean rendering) {
         this.rendering = rendering;
         setLayout(null);
-        setPreferredSize(new Dimension((buttonSize + 2) * 9, (buttonSize + 2) * 9));
+        setPreferredSize(new Dimension((buttonSize + 4) * 9, (buttonSize + 2) * 9));
         setSize(new Dimension((buttonSize + 2) * 9, (buttonSize + 2) * 9));
 
         networkAdapterNought = new NetworkAdapter();
@@ -235,10 +240,18 @@ public class TicTacGame extends JPanel {
         }
 
         if (propagaterCross != null) {
-            propagaterCross.superSpecialShit(index);
+            if (sleepTime > 0) {
+                propagaterCross.propagate();
+            } else {
+                propagaterCross.superSpecialShit(index);
+            }
         }
         if (propagaterNought != null) {
-            propagaterNought.superSpecialShit(index);
+            if (sleepTime > 0) {
+                propagaterNought.propagate();
+            } else {
+                propagaterNought.superSpecialShit(index);
+            }
         }
 
         xTurn = !xTurn;

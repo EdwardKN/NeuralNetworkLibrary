@@ -34,6 +34,10 @@ public class Genome implements Serializable {
 
     }
 
+    public void resetPreviousValues() {
+        previousValues = ThreadLocal.withInitial(HashMap::new);
+    }
+
     public Genome deepClone() {
         Genome clonedGenome = SerializationUtils.clone(this);
         clonedGenome.previousValues = ThreadLocal.withInitial(HashMap::new);
@@ -49,6 +53,7 @@ public class Genome implements Serializable {
 
         for (NeuronGene neuron : neurons) {
             currentValues.put(neuron.getId(), neuron.getBias());
+            localPreviousValues.put(neuron.getId(), neuron.getBias());
         }
 
         for (int i = 0; i < amountOfInputs; i++) {
@@ -199,7 +204,7 @@ public class Genome implements Serializable {
 
             Activation activation = idToNeuron.get(inputId).getActivation();
             double newValue = newLocalPreviousValues.get(outputId) + link.getWeight() * (
-                    currentValues.get(inputId) - activation.activate(localPreviousValues.get(inputId)) );
+                    currentValues.get(inputId) - activation.activate(localPreviousValues.get(inputId)));
 
             newLocalPreviousValues.put(outputId, newValue);
             currentValues.put(outputId, idToNeuron.get(inputId).activate((newValue)));
@@ -508,5 +513,6 @@ public class Genome implements Serializable {
     public int getComplexity() {
         return neurons.size() + (int) links.stream().filter(LinkGene::isEnabled).count();
     }
+
 
 }

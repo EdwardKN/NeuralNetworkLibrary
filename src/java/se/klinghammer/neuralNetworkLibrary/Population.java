@@ -451,6 +451,10 @@ public class Population {
             return null;
         }
 
+        for (Individual individual : filePopulation.individuals) {
+            individual.getNetwork().resetPreviousValues();
+        }
+
         return filePopulation;
     }
 

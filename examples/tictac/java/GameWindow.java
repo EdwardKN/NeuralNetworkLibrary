@@ -1,3 +1,4 @@
+import se.klinghammer.neuralNetworkLibrary.Individual;
 import se.klinghammer.neuralNetworkLibrary.Population;
 
 import javax.swing.*;
@@ -30,15 +31,21 @@ public class GameWindow extends JFrame {
 
         boolean rendering = false;
 
-        int players = 2;
+        int players = 1;
         if (rendering) {
 
             population = Population.importFromJson("examples/tictac/resources/exported.json");
             ticTacGame = new TicTacGame(true);
 
             if (players == 0) {
+                for (Individual individual : population.getBestSamplesSorted(2)) {
+                    individual.getNetwork().createInputPaths();
+                    individual.getNetwork().propagate(new double[individual.getNetwork().getAmountOfInputs()]);
+                }
                 ticTacGame.setSamples(population.getBestSamplesSorted(2));
             } else if (players == 1) {
+                population.getBestSamplesSorted(1)[0].getNetwork().createInputPaths();
+                population.getBestSamplesSorted(1)[0].getNetwork().propagate(new double[population.getBestSamplesSorted(1)[0].getNetwork().getAmountOfInputs()]);
                 ticTacGame.setSample(population.getBestSamplesSorted(1)[0]);
             }
 
@@ -54,7 +61,7 @@ public class GameWindow extends JFrame {
 
 
             add(ticTacGame);
-            setSize((ticTacGame.getPreferredSize().width), (ticTacGame.getPreferredSize().height));
+            setSize((ticTacGame.getPreferredSize().width), (ticTacGame.getPreferredSize().height) + 40);
 
             setLayout(null);
             setVisible(true);
@@ -68,7 +75,7 @@ public class GameWindow extends JFrame {
             population = Population.importFromJson("examples/tictac/resources/exported.json");
 
             if (population == null) {
-                population = new Population(250, NetworkAdapter.getInputAmount(), Propagater.getOutputAmount(), "examples/tictac/resources/exported.json");
+                population = new Population(250, NetworkAdapter.getInputAmount(), Propagater.getOutputAmount(), "examples/tictac/resources/exported.json", true);
             }
 
             population.setFitnessComputer(new FitnessComputerTicTacToe(population));
