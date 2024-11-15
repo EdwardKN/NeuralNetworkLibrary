@@ -191,8 +191,12 @@ public class Genome implements Serializable {
                 currentValues.put(inputId, inputNeuron.activate(newLocalPreviousValues.get(inputId)));
             }
 
-            double newValue = newLocalPreviousValues.get(outputId) + link.getWeight() * (currentValues.get(inputId) - localPreviousValues.get(inputId));
+            Activation activation = idToNeuron.get(inputId).getActivation();
+            double newValue = newLocalPreviousValues.get(outputId) + link.getWeight() * (
+                    activation.activate(currentValues.get(inputId)) - activation.activate(localPreviousValues.get(inputId)) );
+
             newLocalPreviousValues.put(outputId, newValue);
+            currentValues.put(outputId, )
         }
 
         // Activate outputs

@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="previousValues.clear()">
+    <list default="true" id="8922e50d-f55a-449c-bc25-7b804c15c703" name="Changes" comment="fixed previousValues = Null after Serialization">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Genome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/se/klinghammer/neuralNetworkLibrary/Population.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,14 +117,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730574596404</updated>
-    </task>
-    <task id="LOCAL-00008" summary="test">
-      <option name="closed" value="true" />
-      <created>1730580259536</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1730580259536</updated>
     </task>
     <task id="LOCAL-00009" summary="kanske nu">
       <option name="closed" value="true" />
@@ -511,11 +501,17 @@
       <option name="presentableId" value="LOCAL−00056" />
       <updated>1731571726594</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL−00057" summary="fixed previousValues = Null after Serialization">
+      <option name="closed" value="true" />
+      <created>1731665130178</created>
+      <option name="number" value="LOCAL−00057" />
+      <option name="presentableId" value="LOCAL−00057" />
+      <updated>1731665130178</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ny library men broken example" />
     <MESSAGE value="liten miss" />
     <MESSAGE value="gamla" />
     <MESSAGE value="nu då" />
@@ -540,7 +536,8 @@
     <MESSAGE value="kanske fixad" />
     <MESSAGE value="WOWZEWRS2" />
     <MESSAGE value="previousValues.clear()" />
-    <option name="LAST_COMMIT_MESSAGE" value="previousValues.clear()" />
+    <MESSAGE value="fixed previousValues = Null after Serialization" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed previousValues = Null after Serialization" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
