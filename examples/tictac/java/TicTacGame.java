@@ -63,8 +63,8 @@ public class TicTacGame extends JPanel {
         if (propagaterCross != null) {
             propagaterCross.propagate();
         }
-        if (propagaterCross != null) {
-            propagaterCross.propagate();
+        if (propagaterNought != null) {
+            propagaterNought.propagate();
         }
 
         while (running) {
@@ -89,7 +89,6 @@ public class TicTacGame extends JPanel {
                 int maxIndex = getMaxIndex(propagation);
 
                 updateSquare(maxIndex);
-
             } else if (propagaterNought != null) {
                 double[] propagation = propagaterNought.getPropagation();
 
@@ -238,8 +237,8 @@ public class TicTacGame extends JPanel {
         if (propagaterCross != null) {
             propagaterCross.superSpecialShit(index);
         }
-        if (propagaterCross != null) {
-            propagaterCross.superSpecialShit(index);
+        if (propagaterNought != null) {
+            propagaterNought.superSpecialShit(index);
         }
 
         xTurn = !xTurn;

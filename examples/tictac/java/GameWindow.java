@@ -68,7 +68,7 @@ public class GameWindow extends JFrame {
             population = Population.importFromJson("examples/tictac/resources/exported.json");
 
             if (population == null) {
-                population = new Population(250, NetworkAdapter.getInputAmount(), Propagater.getOutputAmount(), "examples/tictac/resources/exported.json", true);
+                population = new Population(250, NetworkAdapter.getInputAmount(), Propagater.getOutputAmount(), "examples/tictac/resources/exported.json");
             }
 
             population.setFitnessComputer(new FitnessComputerTicTacToe(population));
