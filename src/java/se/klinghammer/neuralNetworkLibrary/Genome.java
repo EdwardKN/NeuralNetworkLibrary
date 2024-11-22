@@ -213,6 +213,7 @@ public class Genome implements Serializable {
             double[] outputs2 = propagate(inputs).getPropagation();
             if (outputs[i] != outputs2[i]) {
                 System.out.println("Något är lurt");
+                System.out.println(outputs2[i] - outputs[i]);
             }
 
         }
