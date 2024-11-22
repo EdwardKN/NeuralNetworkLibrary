@@ -13,7 +13,6 @@ public class Genome implements Serializable {
     private final List<LinkGene> links = new ArrayList<>();
     // Performance
     private final HashMap<Integer, NeuronGene> idToNeuron = new HashMap<>();
-    private transient ThreadLocal<HashMap<Integer, Double>> previousValues;
     private List<List<LinkGene>> inputPaths;
 
     public Genome(int amountOfInputs, int amountOfOutputs) {
@@ -30,35 +29,21 @@ public class Genome implements Serializable {
             addNeuron(new NeuronGene(i, Population.getConfig().getDouble("scalingFactor")));
         }
         createInputPaths();
-        previousValues = ThreadLocal.withInitial(HashMap::new);
-
     }
 
-    public void resetPreviousValues() {
-        previousValues = ThreadLocal.withInitial(HashMap::new);
-    }
-
-    public Genome deepClone() {
-        Genome clonedGenome = SerializationUtils.clone(this);
-        clonedGenome.previousValues = ThreadLocal.withInitial(HashMap::new);
-
-        return clonedGenome;
-    }
-
-    public double[] propagate(double[] inputs) {
+    public SpecialPropagateResponse propagate(double[] inputs) {
         HashMap<Integer, Double> currentValues = new HashMap<>(neurons.size());
+        HashMap<Integer, Double> weightedSums = new HashMap<>(neurons.size());
         BitSet activatedNeurons = new BitSet(neurons.size());
-        HashMap<Integer, Double> localPreviousValues = previousValues.get();
-        localPreviousValues.clear();
 
         for (NeuronGene neuron : neurons) {
             currentValues.put(neuron.getId(), neuron.getBias());
-            localPreviousValues.put(neuron.getId(), neuron.getBias());
+            weightedSums.put(neuron.getId(), neuron.getBias());
         }
 
         for (int i = 0; i < amountOfInputs; i++) {
             currentValues.put(i, inputs[i]);
-            localPreviousValues.put(i, inputs[i]);
+            weightedSums.put(i, inputs[i]);
             activatedNeurons.set(i);
         }
 
@@ -72,7 +57,7 @@ public class Genome implements Serializable {
 
             // Apply activation function
             if (!activatedNeurons.get(inputId)) {
-                localPreviousValues.put(inputId, currentValues.get(inputId));
+                weightedSums.put(inputId, currentValues.get(inputId));
 
                 activatedNeurons.set(inputId);
                 NeuronGene inputNeuron = idToNeuron.get(inputId);
@@ -88,7 +73,7 @@ public class Genome implements Serializable {
         double[] outputs = new double[amountOfOutputs];
 
         for (int i = 0; i < amountOfOutputs; i++) {
-            localPreviousValues.put(amountOfInputs + i, currentValues.get(amountOfInputs + i));
+            weightedSums.put(amountOfInputs + i, currentValues.get(amountOfInputs + i));
 
             if (Population.getConfig().getSring("forceOutputActivationType").isEmpty()) {
                 outputs[i] = se.klinghammer.neuralNetworkLibrary.Activation.Sigmoid.activate(currentValues.get(amountOfInputs + i));
@@ -97,9 +82,7 @@ public class Genome implements Serializable {
             }
         }
 
-        previousValues.set(localPreviousValues);
-
-        return outputs;
+        return new SpecialPropagateResponse(weightedSums, outputs);
     }
 
     /* --------------------------- FIX ----------------------- */
@@ -183,10 +166,9 @@ public class Genome implements Serializable {
 
 
     // Requirements: propagate(), createInputPaths(), clear previousValues
-    public double[] superSpecialPropagate(double[] inputs, int inputIndex) {
-        HashMap<Integer, Double> localPreviousValues = previousValues.get();
-        HashMap<Integer, Double> newLocalPreviousValues = new HashMap<>(localPreviousValues);
-        HashMap<Integer, Double> currentValues = new HashMap<>();
+    public SpecialPropagateResponse superSpecialPropagate(HashMap<Integer, Double> previousValues, double[] inputs, int inputIndex) {
+        HashMap<Integer, Double> currentValues = new HashMap<>(previousValues);
+        HashMap<Integer, Double> weightedSums = new HashMap<>(previousValues);
         BitSet activatedNeurons = new BitSet();
 
         currentValues.put(inputIndex, inputs[inputIndex]);
@@ -197,26 +179,29 @@ public class Genome implements Serializable {
             int outputId = link.getOutputId();
 
             if (!activatedNeurons.get(inputId)) {
+                previousValues.put(inputId, currentValues.get(inputId));
+
                 activatedNeurons.set(inputId);
                 NeuronGene inputNeuron = idToNeuron.get(inputId);
-                currentValues.put(inputId, inputNeuron.activate(newLocalPreviousValues.get(inputId)));
+                currentValues.put(inputId, inputNeuron.activate(currentValues.get(inputId)));
             }
 
             Activation activation = idToNeuron.get(inputId).getActivation();
-            double newValue = newLocalPreviousValues.get(outputId) + link.getWeight() * (
-                    currentValues.get(inputId) - activation.activate(localPreviousValues.get(inputId)));
+            double newValue = weightedSums.get(outputId) + link.getWeight() * (
+                    currentValues.get(inputId) - activation.activate(previousValues.get(inputId)));
 
-            newLocalPreviousValues.put(outputId, newValue);
+            weightedSums.put(outputId, newValue);
             currentValues.put(outputId, idToNeuron.get(inputId).activate((newValue)));
         }
 
-        previousValues.set(newLocalPreviousValues);
 
         // Activate outputs
         double[] outputs = new double[amountOfOutputs];
 
         for (int i = 0; i < amountOfOutputs; i++) {
-            double output = currentValues.containsKey(amountOfInputs + i) ? currentValues.get(amountOfInputs + i) : newLocalPreviousValues.get(amountOfInputs + i);
+            double output = currentValues.containsKey(amountOfInputs + i) ? currentValues.get(amountOfInputs + i) : weightedSums.get(amountOfInputs + i);
+            weightedSums.put(amountOfInputs + i, output);
+
             if (Population.getConfig().getSring("forceOutputActivationType").isEmpty()) {
                 outputs[i] = Activation.Sigmoid.activate(output);
             } else {
@@ -224,7 +209,14 @@ public class Genome implements Serializable {
             }
         }
 
-        return outputs;
+        for (int i = 0; i < outputs.length; i++) {
+            double[] outputs2 = propagate(inputs).getPropagation();
+            if (outputs[i] != outputs2[i]) {
+                System.out.println("Något är lurt");
+            }
+
+        }
+        return new SpecialPropagateResponse(weightedSums, outputs);
     }
 
     private List<Integer> getAdjacent(int id) {
@@ -514,5 +506,21 @@ public class Genome implements Serializable {
         return neurons.size() + (int) links.stream().filter(LinkGene::isEnabled).count();
     }
 
+    public class SpecialPropagateResponse {
+        private final HashMap<Integer, Double> savedValues;
+        private final double[] propagation;
 
+        public SpecialPropagateResponse(HashMap<Integer, Double> savedValues, double[] propagation) {
+            this.savedValues = savedValues;
+            this.propagation = propagation;
+        }
+
+        public HashMap<Integer, Double> getSavedValues() {
+            return savedValues;
+        }
+
+        public double[] getPropagation() {
+            return propagation;
+        }
+    }
 }

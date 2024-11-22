@@ -1,6 +1,8 @@
 import se.klinghammer.neuralNetworkLibrary.Genome;
 import se.klinghammer.neuralNetworkLibrary.Individual;
 
+import java.util.HashMap;
+
 public class Propagater {
     private final Individual individual;
 
@@ -12,6 +14,7 @@ public class Propagater {
 
     private double[] propagation = new double[outputAmount];
 
+    private HashMap<Integer, Double> savedData = new HashMap<>();
 
     public Propagater(Individual individual, NetworkAdapter networkAdapter) {
         this.individual = individual;
@@ -20,14 +23,18 @@ public class Propagater {
     }
 
     public void propagate() {
-        propagation = genome.propagate(networkAdapter.getPack());
+        Genome.SpecialPropagateResponse response = genome.propagate(networkAdapter.getPack());
+        propagation = response.getPropagation();
+        savedData = response.getSavedValues();
     }
 
     public double[] getPropagation() {
         return propagation;
     }
     public void superSpecialShit(int index) {
-        propagation = genome.superSpecialPropagate(networkAdapter.getPack(), index);
+        Genome.SpecialPropagateResponse response = genome.superSpecialPropagate(savedData, networkAdapter.getPack(), index);
+        savedData = response.getSavedValues();
+        propagation = response.getPropagation();
     }
 
 

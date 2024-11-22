@@ -2,6 +2,7 @@ package se.klinghammer.neuralNetworkLibrary;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.apache.commons.lang3.SerializationUtils;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -366,14 +367,14 @@ public class Population {
                 Individual offspring;
 
                 if (i <= mutationCutoff) {
-                    Genome copiedGenome = currentSpecies.get(i).getNetwork().deepClone();
+                    Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(i).getNetwork());
                     offspring = new Individual(copiedGenome, currentIndividualId++);
                 } else if (mutationCutoff != 0) {
-                    Genome copiedGenome = currentSpecies.get(config.getBoolean("extremeTossing") ? ((i - mutationCutoff) % mutationCutoff) : i - mutationCutoff).getNetwork().deepClone();
+                    Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(config.getBoolean("extremeTossing") ? ((i - mutationCutoff) % mutationCutoff) : i - mutationCutoff).getNetwork());
                     offspring = new Individual(copiedGenome, currentIndividualId++);
                     offspring.mutate(config.getInt("amountOfMutationRolls"), false);
                 } else {
-                    Genome copiedGenome = currentSpecies.get(i).getNetwork().deepClone();
+                    Genome copiedGenome = SerializationUtils.clone(currentSpecies.get(i).getNetwork());
                     offspring = new Individual(copiedGenome, currentIndividualId++);
                 }
                 newGeneration.add(offspring);
@@ -384,7 +385,7 @@ public class Population {
             }
 
             if (amountOfOffspring[index] - crossoverCutoff == 1 || crossoverCutoff == 0) {
-                Genome copiedGenome = currentSpecies.getFirst().getNetwork().deepClone();
+                Genome copiedGenome = SerializationUtils.clone(currentSpecies.getFirst().getNetwork());
                 newGeneration.add(new Individual(copiedGenome, currentIndividualId++));
 
                 if (currentIndividualId == populationSize) {
@@ -449,10 +450,6 @@ public class Population {
             filePopulation = gson.fromJson(reader, Population.class);
         } catch (IOException e) {
             return null;
-        }
-
-        for (Individual individual : filePopulation.individuals) {
-            individual.getNetwork().resetPreviousValues();
         }
 
         return filePopulation;
